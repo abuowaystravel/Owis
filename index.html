@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title data-ar="أبو أويس للسفر والسياحة" data-en="Abu Oways Travel">أبو أويس للسفر والسياحة</title>
+<title>أبو أويس للسفر والسياحة</title>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
 :root{--blue:#0A2E6E; --orange:#FF7A00; --light:#F5F7FA}
@@ -41,11 +41,6 @@ input:focus,select:focus{outline:2px solid var(--orange); border-color:var(--ora
 .footer{background:var(--blue); color:white; text-align:center; padding:40px 20px}
 .whatsapp{position:fixed; bottom:20px; left:20px; background:#25D366; width:55px; height:55px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:white; font-size:30px; text-decoration:none; box-shadow:0 4px 10px rgba(0,0,0,0.2)}
 
-.lang-en{display:none}
-body.en.lang-ar{display:none}
-body.en.lang-en{display:block}
-body.en{direction:ltr; text-align:left}
-
 @media(max-width:768px){
 .nav-links{display:none}
 .hero{padding:40px 20px; text-align:center}
@@ -56,48 +51,37 @@ body.en{direction:ltr; text-align:left}
 
 <div class="topbar">
   <div>📞 966558840686+</div>
-  <div><a onclick="toggleLang()">EN / العربية 🌐</a></div>
+  <div><a onclick="toggleLang()" id="langBtn">EN 🌐</a></div>
 </div>
 
 <div class="navbar">
-  <a href="#book" class="btn-orange">
-    <span class="lang-ar">احجز الآن 📅</span>
-    <span class="lang-en">Book Now 📅</span>
-  </a>
+  <a href="#book" class="btn-orange" id="navBtn">احجز الآن 📅</a>
   <div class="nav-links">
-    <a href="#"><span class="lang-ar">الرئيسية</span><span class="lang-en">Home</span></a>
-    <a href="#services"><span class="lang-ar">خدماتنا</span><span class="lang-en">Services</span></a>
-    <a href="#book"><span class="lang-ar">الحجز</span><span class="lang-en">Booking</span></a>
-    <a href="#"><span class="lang-ar">من نحن</span><span class="lang-en">About Us</span></a>
-    <a href="#"><span class="lang-ar">تواصل معنا</span><span class="lang-en">Contact</span></a>
+    <a href="#" id="nav1">الرئيسية</a>
+    <a href="#services" id="nav2">خدماتنا</a>
+    <a href="#book" id="nav3">الحجز</a>
+    <a href="#" id="nav4">من نحن</a>
+    <a href="#" id="nav5">تواصل معنا</a>
   </div>
   <img src="IMAGE_LOGO" alt="أبو أويس" style="height:50px">
 </div>
 
 <div class="hero">
   <div class="hero-text">
-    <h1><span class="lang-ar">رحلتك إلى <br>بيت الله <br><span style="color:var(--orange)">تبدأ من هنا</span></span>
-        <span class="lang-en">Your Journey to <br>Allah's House <br><span style="color:var(--orange)">Starts Here</span></span></h1>
-    <p class="lang-ar" style="margin-top:10px">جميع خدمات السفر والسياحة في مكان واحد</p>
-    <p class="lang-en" style="margin-top:10px">All travel & tourism services in one place</p>
-    <a href="#book" class="btn-orange" style="margin-top:15px">
-      <span class="lang-ar">احجز الآن</span>
-      <span class="lang-en">Book Now</span>
-    </a>
+    <h1 id="heroTitle">رحلتك إلى <br>بيت الله <br><span>تبدأ من هنا</span></h1>
+    <p id="heroDesc" style="margin-top:10px">جميع خدمات السفر والسياحة في مكان واحد</p>
+    <a href="#book" class="btn-orange" id="heroBtn" style="margin-top:15px">احجز الآن</a>
   </div>
   <div class="features-text">
-    <div class="feature-item"><b class="lang-ar">أسعار تنافسية</b><b class="lang-en">Competitive Prices</b><br><span class="lang-ar">أفضل الأسعار والعروض</span><span class="lang-en">Best prices & offers</span></div>
-    <div class="feature-item"><b class="lang-ar">خدمة عملاء 24/7</b><b class="lang-en">24/7 Support</b><br><span class="lang-ar">نحن معك في كل خطوة</span><span class="lang-en">We are with you every step</span></div>
-    <div class="feature-item"><b class="lang-ar">حجوزات آمنة</b><b class="lang-en">Secure Booking</b><br><span class="lang-ar">حماية ببياناتك 100%</span><span class="lang-en">100% data protection</span></div>
+    <div class="feature-item"><b id="f1">أسعار تنافسية</b><br><span id="f1d">أفضل الأسعار والعروض</span></div>
+    <div class="feature-item"><b id="f2">خدمة عملاء 24/7</b><br><span id="f2d">نحن معك في كل خطوة</span></div>
+    <div class="feature-item"><b id="f3">حجوزات آمنة</b><br><span id="f3d">حماية ببياناتك 100%</span></div>
   </div>
 </div>
 
 <!-- الفورم -->
 <div class="form-box" id="book">
-  <h2 style="text-align:center; margin-bottom:20px; color:var(--blue)">
-    <span class="lang-ar">نموذج الحجز السريع</span>
-    <span class="lang-en">Quick Booking Form</span>
-  </h2>
+  <h2 style="text-align:center; margin-bottom:20px; color:var(--blue)" id="formTitle">نموذج الحجز السريع</h2>
   <form action="https://formsubmit.co/Rhmtabwmr03@gmail.com" method="POST">
     <input type="hidden" name="_subject" value="New Booking - Abu Oways">
     <input type="hidden" name="_captcha" value="false">
@@ -115,85 +99,113 @@ body.en{direction:ltr; text-align:left}
 </div>
 
 <!-- 3 اقسام -->
-<h2 style="text-align:center; color:var(--blue); margin-bottom:20px" id="services">
-  <span class="lang-ar">خدماتنا المميزة</span>
-  <span class="lang-en">Our Featured Services</span>
-</h2>
+<h2 style="text-align:center; color:var(--blue); margin-bottom:20px" id="servicesTitle">خدماتنا المميزة</h2>
 <div class="packages">
   <div class="card">
     <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=400" alt="الطيران">
     <div class="card-body">
-      <h3><span class="lang-ar">حجوزات الطيران</span><span class="lang-en">Flight Booking</span></h3>
-      <p><span class="lang-ar">أفضل الأسعار لجميع الوجهات العالمية</span><span class="lang-en">Best prices for all global destinations</span></p>
-      <a href="#book" class="btn-orange"><span class="lang-ar">احجز الآن</span><span class="lang-en">Book Now</span></a>
+      <h3 id="s1">حجوزات الطيران</h3>
+      <p id="s1d">أفضل الأسعار لجميع الوجهات العالمية</p>
+      <a href="#book" class="btn-orange" id="s1b">احجز الآن</a>
     </div>
   </div>
   <div class="card">
     <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=400" alt="العمرة">
     <div class="card-body">
-      <h3><span class="lang-ar">تأشيرات العمرة الإلكترونية</span><span class="lang-en">E-Umrah Visa</span></h3>
-      <p><span class="lang-ar">اصدار سريع خلال 24 ساعة</span><span class="lang-en">Fast issuance within 24 hours</span></p>
-      <a href="#book" class="btn-orange"><span class="lang-ar">احجز الآن</span><span class="lang-en">Book Now</span></a>
+      <h3 id="s2">تأشيرات العمرة الإلكترونية</h3>
+      <p id="s2d">اصدار سريع خلال 24 ساعة</p>
+      <a href="#book" class="btn-orange" id="s2b">احجز الآن</a>
     </div>
   </div>
   <div class="card">
     <img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?q=400" alt="التأمين">
     <div class="card-body">
-      <h3><span class="lang-ar">تأمين الزيارات</span><span class="lang-en">Visit Insurance</span></h3>
-      <p><span class="lang-ar">تأمين شامل لجميع انواع الزيارات</span><span class="lang-en">Comprehensive insurance for all visit types</span></p>
-      <a href="#book" class="btn-orange"><span class="lang-ar">احجز الآن</span><span class="lang-en">Book Now</span></a>
+      <h3 id="s3">تأمين الزيارات</h3>
+      <p id="s3d">تأمين شامل لجميع انواع الزيارات</p>
+      <a href="#book" class="btn-orange" id="s3b">احجز الآن</a>
     </div>
   </div>
 </div>
 
 <div class="footer">
   <img src="IMAGE_LOGO" alt="أبو أويس" style="height:60px">
-  <p><span class="lang-ar">أبو أويس للسفر والسياحة</span><span class="lang-en">Abu Oways Travel & Tourism</span></p>
-  <p><span class="lang-ar">جميع الحقوق محفوظة</span><span class="lang-en">All Rights Reserved</span> © 2026</p>
+  <p id="footer1">أبو أويس للسفر والسياحة</p>
+  <p id="footer2">جميع الحقوق محفوظة © 2026</p>
   <p>📞 966558840686+</p>
 </div>
 
 <a href="https://wa.me/966558840686" class="whatsapp">💬</a>
 
 <script>
-const translations = {
+let currentLang = 'ar';
+
+const dict = {
   ar: {
+    title: "أبو أويس للسفر والسياحة",
+    langBtn: "EN 🌐",
+    navBtn: "احجز الآن 📅",
+    nav1: "الرئيسية", nav2: "خدماتنا", nav3: "الحجز", nav4: "من نحن", nav5: "تواصل معنا",
+    heroTitle: 'رحلتك إلى <br>بيت الله <br><span style="color:var(--orange)">تبدأ من هنا</span>',
+    heroDesc: "جميع خدمات السفر والسياحة في مكان واحد",
+    heroBtn: "احجز الآن",
+    f1: "أسعار تنافسية", f1d: "أفضل الأسعار والعروض",
+    f2: "خدمة عملاء 24/7", f2d: "نحن معك في كل خطوة",
+    f3: "حجوزات آمنة", f3d: "حماية ببياناتك 100%",
+    formTitle: "نموذج الحجز السريع",
+    name: "الاسم الكامل", phone: "رقم الواتساب", destination: "الوجهة", persons: "عدد الأشخاص", submit: "ارسال الطلب", date: "تاريخ السفر",
     services: ["اختر الخدمة", "حجوزات الطيران", "حجوزات البواخر", "تأشيرات العمرة الإلكترونية", "تأمين الزيارات", "تجديد الزيارات العائلية", "استخراج الرخصة الدولية"],
-    placeholders: {name:"الاسم الكامل", phone:"رقم الواتساب", destination:"الوجهة", persons:"عدد الأشخاص", submit:"ارسال الطلب", date:"تاريخ السفر"},
-    title: "أبو أويس للسفر والسياحة"
+    servicesTitle: "خدماتنا المميزة",
+    s1: "حجوزات الطيران", s1d: "أفضل الأسعار لجميع الوجهات العالمية", s1b: "احجز الآن",
+    s2: "تأشيرات العمرة الإلكترونية", s2d: "اصدار سريع خلال 24 ساعة", s2b: "احجز الآن",
+    s3: "تأمين الزيارات", s3d: "تأمين شامل لجميع انواع الزيارات", s3b: "احجز الآن",
+    footer1: "أبو أويس للسفر والسياحة", footer2: "جميع الحقوق محفوظة © 2026"
   },
   en: {
+    title: "Abu Oways Travel",
+    langBtn: "العربية 🌐",
+    navBtn: "Book Now 📅",
+    nav1: "Home", nav2: "Services", nav3: "Booking", nav4: "About", nav5: "Contact",
+    heroTitle: 'Your Journey to <br>Allah\'s House <br><span style="color:var(--orange)">Starts Here</span>',
+    heroDesc: "All travel & tourism services in one place",
+    heroBtn: "Book Now",
+    f1: "Competitive Prices", f1d: "Best prices & offers",
+    f2: "24/7 Support", f2d: "We are with you every step",
+    f3: "Secure Booking", f3d: "100% data protection",
+    formTitle: "Quick Booking Form",
+    name: "Full Name", phone: "WhatsApp Number", destination: "Destination", persons: "Number of Persons", submit: "Send Request", date: "Travel Date",
     services: ["Select Service", "Flight Booking", "Ferry Booking", "E-Umrah Visa", "Visit Insurance", "Family Visit Renewal", "International Driving License"],
-    placeholders: {name:"Full Name", phone:"WhatsApp Number", destination:"Destination", persons:"Number of Persons", submit:"Send Request", date:"Travel Date"},
-    title: "Abu Oways Travel"
+    servicesTitle: "Our Featured Services",
+    s1: "Flight Booking", s1d: "Best prices for all global destinations", s1b: "Book Now",
+    s2: "E-Umrah Visa", s2d: "Fast issuance within 24 hours", s2b: "Book Now",
+    s3: "Visit Insurance", s3d: "Comprehensive insurance for all visit types", s3b: "Book Now",
+    footer1: "Abu Oways Travel & Tourism", footer2: "All Rights Reserved © 2026"
   }
 };
 
-function updateLanguage(isEnglish){
-  const lang = isEnglish? 'en' : 'ar';
-  const t = translations[lang];
-  const direction = isEnglish? 'ltr' : 'rtl';
-  const textAlign = isEnglish? 'left' : 'right';
-
-  // تحديث العنوان
-  document.title = t.title;
+function setLang(lang){
+  const t = dict[lang];
   document.documentElement.lang = lang;
-  document.documentElement.dir = direction;
+  document.documentElement.dir = lang === 'ar'? 'rtl' : 'ltr';
+  document.title = t.title;
 
-  // تحديث الفورم
-  document.getElementById('name').placeholder = t.placeholders.name;
-  document.getElementById('phone').placeholder = t.placeholders.phone;
-  document.getElementById('destination').placeholder = t.placeholders.destination;
-  document.getElementById('persons').placeholder = t.placeholders.persons;
-  document.getElementById('date').placeholder = t.placeholders.date;
-  document.getElementById('submitBtn').innerText = t.placeholders.submit;
+  // غير كل النصوص
+  for(let id in t){
+    if(id === 'services') continue;
+    if(document.getElementById(id)){
+      document.getElementById(id).innerHTML = t[id];
+    }
+  }
 
-  [ 'name','phone','destination','persons','service','date' ].forEach(id=>{
+  // غير الفورم
+  const direction = lang === 'ar'? 'rtl' : 'ltr';
+  const align = lang === 'ar'? 'right' : 'left';
+  ['name','phone','destination','persons','service','date'].forEach(id=>{
+    document.getElementById(id).placeholder = t[id];
     document.getElementById(id).style.direction = direction;
-    document.getElementById(id).style.textAlign = textAlign;
+    document.getElementById(id).style.textAlign = align;
   });
 
-  // تحديث قائمة الخدمات
+  // غير قائمة الخدمات
   const serviceSelect = document.getElementById('service');
   serviceSelect.innerHTML = '';
   t.services.forEach(s => {
@@ -205,13 +217,12 @@ function updateLanguage(isEnglish){
 }
 
 function toggleLang(){
-  document.body.classList.toggle('en');
-  const isEnglish = document.body.classList.contains('en');
-  updateLanguage(isEnglish);
+  currentLang = currentLang === 'ar'? 'en' : 'ar';
+  setLang(currentLang);
 }
 
-// تحميل اول مرة عربي
-updateLanguage(false);
+// ابدأ عربي
+setLang('ar');
 </script>
 </body>
 </html>
