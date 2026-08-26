@@ -271,6 +271,7 @@ body{
 
 .form-grid{
     display:grid;
+
     grid-template-columns:
     repeat(auto-fit,minmax(200px,1fr));
 
@@ -336,16 +337,20 @@ select:focus{
 
 /* =========================
    SERVICE IMAGES
-   تم تعديلها حتى يظهر
-   النص داخل الصورة بالكامل
+   العرض يملأ الكارت بالكامل
+   بدون قص النص الموجود بالصورة
 ========================= */
 
 .card img{
     width:100%;
-    height:180px;
+    height:auto;
+    max-width:100%;
+
+    display:block;
+
     object-fit:contain;
     object-position:center;
-    display:block;
+
     background:#fff;
 }
 
@@ -386,9 +391,12 @@ select:focus{
     max-width:200px;
     width:auto;
     object-fit:contain;
+
     background:white;
     padding:8px;
+
     border-radius:10px;
+
     margin-bottom:15px;
 }
 
@@ -523,21 +531,28 @@ select:focus{
 
     .packages{
         grid-template-columns:1fr;
+
         padding:15px 15px 45px;
+
         gap:20px;
     }
 
     /* =========================
        صور الموبايل
-       أصغر + بدون قص
+       نفس العرض الكامل
+       والارتفاع تلقائي
     ========================= */
 
     .card img{
         width:100%;
-        height:150px;
+        height:auto;
+        max-width:100%;
+
         object-fit:contain;
         object-position:center;
+
         display:block;
+
         background:#fff;
     }
 
@@ -573,6 +588,7 @@ select:focus{
         bottom:15px;
         left:15px;
     }
+
 }
 
 /* =========================
@@ -599,7 +615,8 @@ select:focus{
     }
 
     .card img{
-        height:135px;
+        width:100%;
+        height:auto;
     }
 
     .card-body{
@@ -619,7 +636,8 @@ select:focus{
 @media(max-width:350px){
 
     .card img{
-        height:125px;
+        width:100%;
+        height:auto;
     }
 
     .packages{
@@ -659,8 +677,6 @@ select:focus{
 
 <div class="navbar">
 
-    <!-- MOBILE MENU BUTTON -->
-
     <button
         class="menu-btn"
         onclick="toggleMenu()"
@@ -668,8 +684,6 @@ select:focus{
         ☰
     </button>
 
-
-    <!-- LOGO -->
 
     <a
         href="#home"
@@ -682,8 +696,6 @@ select:focus{
 
     </a>
 
-
-    <!-- DESKTOP NAV -->
 
     <div class="nav-links">
 
@@ -710,16 +722,12 @@ select:focus{
     </div>
 
 
-    <!-- BOOK BUTTON -->
-
     <a
         href="#book"
         class="btn-orange">
         احجز الآن 📅
     </a>
 
-
-    <!-- MOBILE MENU -->
 
     <div
         class="mobile-menu"
@@ -850,7 +858,6 @@ select:focus{
         نموذج الحجز السريع
     </h2>
 
-
     <form
         action="https://formsubmit.co/Rhmtabwmr03@gmail.com"
         method="POST">
@@ -865,7 +872,6 @@ select:focus{
             name="_captcha"
             value="false">
 
-
         <div class="form-grid">
 
             <input
@@ -875,7 +881,6 @@ select:focus{
                 placeholder="الاسم الكامل"
                 required>
 
-
             <input
                 type="tel"
                 id="phone"
@@ -883,13 +888,11 @@ select:focus{
                 placeholder="رقم الواتساب"
                 required>
 
-
             <select
                 id="service"
                 name="Service"
                 required>
             </select>
-
 
             <input
                 type="text"
@@ -897,12 +900,10 @@ select:focus{
                 name="Destination"
                 placeholder="الوجهة">
 
-
             <input
                 type="date"
                 name="Travel Date"
                 id="date">
-
 
             <input
                 type="number"
@@ -912,7 +913,6 @@ select:focus{
                 min="1">
 
         </div>
-
 
         <button
             type="submit"
@@ -1428,10 +1428,10 @@ function setLang(lang){
     document.title = t.title;
 
 
-    /* TEXT */
-
     const ids = [
+
         "langBtn",
+
         "nav1",
         "nav2",
         "nav3",
@@ -1494,7 +1494,9 @@ function setLang(lang){
     });
 
 
-    /* INPUT PLACEHOLDERS */
+    /* =========================
+       INPUT PLACEHOLDERS
+    ========================= */
 
     const direction =
         lang === "ar" ? "rtl" : "ltr";
@@ -1516,7 +1518,14 @@ function setLang(lang){
         t.persons;
 
 
-    ["name","phone","destination","persons","service","date"]
+    [
+        "name",
+        "phone",
+        "destination",
+        "persons",
+        "service",
+        "date"
+    ]
     .forEach(id=>{
 
         const element =
@@ -1531,7 +1540,9 @@ function setLang(lang){
     });
 
 
-    /* SERVICES */
+    /* =========================
+       SERVICES
+    ========================= */
 
     const serviceSelect =
         document.getElementById("service");
@@ -1549,8 +1560,11 @@ function setLang(lang){
         option.value = service;
 
         if(index === 0){
+
             option.disabled = true;
+
             option.selected = true;
+
         }
 
         serviceSelect.appendChild(option);
