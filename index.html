@@ -3,31 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>أبو أويس للسفر والسياحة</title>
+<title>أبو أويس للسفر والسياحة | Abu Oways Travel</title>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
 :root{--blue:#0A2E6E; --orange:#FF7A00; --light:#F5F7FA}
-*{font-family:'Cairo', sans-serif; margin:0; padding:0; box-sizing:border-box}
+*{font-family:'Cairo', sans-serif; margin:0; padding:0; box-sizing:border-box; scroll-behavior:smooth}
 body{background:var(--light)}
 .topbar{background:var(--blue); color:white; padding:8px 5%; display:flex; justify-content:space-between; align-items:center; font-size:14px}
-.topbar a{color:white; text-decoration:none}
+.topbar a{color:white; text-decoration:none; cursor:pointer; font-weight:700}
 .navbar{background:white; display:flex; justify-content:space-between; align-items:center; padding:12px 5%; box-shadow:0 2px 8px rgba(0,0,0,0.08); position:sticky; top:0; z-index:10}
-.nav-links{display:flex; gap:25px}
+.nav-links{display:flex; gap:20px; flex-wrap:wrap}
 .nav-links a{text-decoration:none; color:#333; font-weight:700}
 .nav-links a.active{color:var(--orange)}
-.btn-orange{background:var(--orange); color:white; padding:12px 22px; border:none; border-radius:10px; font-weight:bold; cursor:pointer; font-size:16px}
-.hero{background:linear-gradient(rgba(10,46,110,0.75), rgba(10,46,110,0.75)), url('https://images.unsplash.com/photo-1587432967340-d1e3e4b1392d?q=1200') center/cover; color:white; padding:70px 5%; display:flex; gap:30px; flex-wrap:wrap; align-items:center}
+.btn-orange{background:var(--orange); color:white; padding:12px 22px; border:none; border-radius:10px; font-weight:bold; cursor:pointer; font-size:16px; text-decoration:none; display:inline-block}
+
+.hero{background:linear-gradient(rgba(10,46,110,0.75), rgba(10,46,110,0.75)), url('https://images.unsplash.com/photo-1587432967340-d1e3e4b1392d?q=1200') center/cover; color:white; padding:70px 5%; display:flex; gap:40px; flex-wrap:wrap; align-items:center}
 .hero-text{flex:1; min-width:300px}
 .hero-text h1{font-size:42px; font-weight:900; line-height:1.4}
 .hero-text h1 span{color:var(--orange)}
-.features{background:white; color:#333; padding:25px; border-radius:12px; width:280px; box-shadow:0 5px 15px rgba(0,0,0,0.1)}
-.feature{padding:12px 0; border-bottom:1px solid #eee}
-.feature:last-child{border:none}
 
-/* فورم StaffDirect نفسها بالظبط */
-.form-box{background:white; padding:25px; border-radius:12px; width:90%; max-width:950px; margin:-50px auto 40px; box-shadow:0 8px 25px rgba(0,0,0,0.1)}
+/* المميزات نص فقط بنفس هوية الموقع */
+.features-text{flex:1; min-width:250px; color:white}
+.feature-item{margin-bottom:18px}
+.feature-item b{color:var(--orange); font-size:18px}
+
+/* فورم StaffDirect */
+.form-box{background:white; padding:30px; border-radius:12px; width:90%; max-width:950px; margin:-50px auto 40px; box-shadow:0 8px 25px rgba(0,0,0,0.1)}
 .form-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:15px}
-input,select{width:100%; padding:12px; border:1px solid #ddd; border-radius:8px; font-size:15px}
+input,select{width:100%; padding:12px; border:1px solid #ddd; border-radius:8px; font-size:15px; direction:ltr; text-align:left} /* اتجاه واحد LTR */
 input:focus,select:focus{outline:2px solid var(--orange); border-color:var(--orange)}
 
 .packages{display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px; padding:40px 5%}
@@ -39,6 +42,11 @@ input:focus,select:focus{outline:2px solid var(--orange); border-color:var(--ora
 .footer{background:var(--blue); color:white; text-align:center; padding:40px 20px}
 .whatsapp{position:fixed; bottom:20px; left:20px; background:#25D366; width:55px; height:55px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:white; font-size:30px; text-decoration:none; box-shadow:0 4px 10px rgba(0,0,0,0.2)}
 
+.lang-en{display:none}
+body.en .lang-ar{display:none}
+body.en .lang-en{display:block}
+body.en{direction:ltr; text-align:left}
+
 @media(max-width:768px){
 .nav-links{display:none}
 .hero{padding:40px 20px; text-align:center}
@@ -49,88 +57,101 @@ input:focus,select:focus{outline:2px solid var(--orange); border-color:var(--ora
 
 <div class="topbar">
   <div>📞 966558840686+</div>
-  <div>العربية 🌐</div>
+  <div><a onclick="toggleLang()">EN / العربية 🌐</a></div>
 </div>
 
 <div class="navbar">
-  <button class="btn-orange">احجز الآن 📅</button>
+  <a href="#book" class="btn-orange">
+    <span class="lang-ar">احجز الآن 📅</span>
+    <span class="lang-en">Book Now 📅</span>
+  </a>
   <div class="nav-links">
-    <a href="#">تواصل معنا</a>
-    <a href="#">خدماتنا</a>
-    <a href="#">من نحن</a>
-    <a href="#">التأشيرات</a>
-    <a href="#">الفنادق</a>
-    <a href="#">تذاكر الطيران</a>
-    <a href="#">الحج</a>
-    <a href="#">العمرة</a>
-    <a href="#" class="active">الرئيسية</a>
+    <a href="#"><span class="lang-ar">الرئيسية</span><span class="lang-en">Home</span></a>
+    <a href="#"><span class="lang-ar">العمرة</span><span class="lang-en">Umrah</span></a>
+    <a href="#"><span class="lang-ar">الحج</span><span class="lang-en">Hajj</span></a>
+    <a href="#"><span class="lang-ar">تذاكر الطيران</span><span class="lang-en">Flights</span></a>
+    <a href="#"><span class="lang-ar">الفنادق</span><span class="lang-en">Hotels</span></a>
+    <a href="#"><span class="lang-ar">خدماتنا</span><span class="lang-en">Services</span></a>
   </div>
   <img src="IMAGE_LOGO" alt="أبو أويس" style="height:50px">
 </div>
 
 <div class="hero">
   <div class="hero-text">
-    <h1>رحلتك إلى <br>بيت الله <br><span>تبدأ من هنا</span></h1>
-    <p style="margin-top:10px">أفضل باقات الحج والعمرة بأسعار تنافسية</p>
-    <button class="btn-orange" style="margin-top:15px">احجز باقة عمرة</button>
+    <h1 class="lang-ar">رحلتك إلى <br>بيت الله <br><span>تبدأ من هنا</span></h1>
+    <h1 class="lang-en">Your Journey to <br>Allah's House <br><span>Starts Here</span></h1>
+    <p class="lang-ar" style="margin-top:10px">أفضل باقات الحج والعمرة بأسعار تنافسية</p>
+    <p class="lang-en" style="margin-top:10px">Best Hajj & Umrah packages with competitive prices</p>
+    <a href="#book" class="btn-orange" style="margin-top:15px">
+      <span class="lang-ar">احجز باقة عمرة</span>
+      <span class="lang-en">Book Umrah Package</span>
+    </a>
   </div>
-  <div class="features">
-    <div class="feature"><b>أسعار تنافسية</b><br>أفضل الأسعار والعروض</div>
-    <div class="feature"><b>خدمة عملاء 24/7</b><br>نحن معك في كل خطوة</div>
-    <div class="feature"><b>حجوزات آمنة</b><br>حماية ببياناتك 100%</div>
+  <div class="features-text">
+    <div class="feature-item"><b class="lang-ar">أسعار تنافسية</b><b class="lang-en">Competitive Prices</b><br><span class="lang-ar">أفضل الأسعار والعروض</span><span class="lang-en">Best prices & offers</span></div>
+    <div class="feature-item"><b class="lang-ar">خدمة عملاء 24/7</b><b class="lang-en">24/7 Support</b><br><span class="lang-ar">نحن معك في كل خطوة</span><span class="lang-en">We are with you every step</span></div>
+    <div class="feature-item"><b class="lang-ar">حجوزات آمنة</b><b class="lang-en">Secure Booking</b><br><span class="lang-ar">حماية ببياناتك 100%</span><span class="lang-en">100% data protection</span></div>
   </div>
 </div>
 
-<!-- فورم StaffDirect -->
-<div class="form-box">
-  <h2 style="text-align:center; margin-bottom:20px; color:var(--blue)">نموذج الحجز السريع</h2>
+<!-- الفورم -->
+<div class="form-box" id="book">
+  <h2 style="text-align:center; margin-bottom:20px; color:var(--blue)">
+    <span class="lang-ar">نموذج الحجز السريع</span>
+    <span class="lang-en">Quick Booking Form</span>
+  </h2>
   <form action="https://formsubmit.co/Rhmtabwmr03@gmail.com" method="POST">
-    <input type="hidden" name="_subject" value="حجز جديد من موقع أبو أويس">
+    <input type="hidden" name="_subject" value="New Booking - Abu Oways">
     <input type="hidden" name="_captcha" value="false">
     
     <div class="form-grid">
-      <input type="text" name="الاسم" placeholder="الاسم الكامل" required>
-      <input type="tel" name="رقم الجوال" placeholder="رقم الواتساب" required>
-      <select name="الخدمة" required>
-        <option value="">اختر الخدمة</option>
-        <option>حجوزات الطيران</option>
-        <option>حجوزات البواخر</option>
-        <option>تأشيرات العمرة الإلكترونية</option>
-        <option>تأمين الزيارات</option>
-        <option>تجديد الزيارات العائلية</option>
-        <option>استخراج الرخصة الدولية</option>
+      <input type="text" name="Full Name" placeholder="Full Name / الاسم الكامل" required>
+      <input type="tel" name="WhatsApp" placeholder="WhatsApp Number / رقم الواتساب" required>
+      <select name="Service" required>
+        <option value=""><span class="lang-ar">اختر الخدمة</span><span class="lang-en">Select Service</span></option>
+        <option><span class="lang-ar">حجوزات الطيران</span><span class="lang-en">Flight Booking</span></option>
+        <option><span class="lang-ar">حجوزات البواخر</span><span class="lang-en">Ferry Booking</span></option>
+        <option><span class="lang-ar">تأشيرات العمرة الإلكترونية</span><span class="lang-en">E-Umrah Visa</span></option>
+        <option><span class="lang-ar">تأمين الزيارات</span><span class="lang-en">Visit Insurance</span></option>
+        <option><span class="lang-ar">تجديد الزيارات العائلية</span><span class="lang-en">Family Visit Renewal</span></option>
       </select>
-      <input type="text" name="الوجهة" placeholder="الوجهة: مكة، المدينة...">
-      <input type="date" name="تاريخ السفر">
-      <input type="number" name="عدد الأشخاص" placeholder="عدد الأشخاص">
+      <input type="text" name="Destination" placeholder="Destination / الوجهة">
+      <input type="date" name="Travel Date">
+      <input type="number" name="Persons" placeholder="Number of Persons / عدد الأشخاص">
     </div>
-    <button class="btn-orange" style="width:100%; margin-top:15px; padding:15px">ارسال الطلب</button>
+    <button class="btn-orange" style="width:100%; margin-top:15px; padding:15px">
+      <span class="lang-ar">ارسال الطلب</span>
+      <span class="lang-en">Send Request</span>
+    </button>
   </form>
 </div>
 
-<h2 style="text-align:center; color:var(--blue); margin-bottom:20px">باقات العمرة المميزة</h2>
+<h2 style="text-align:center; color:var(--blue); margin-bottom:20px">
+  <span class="lang-ar">باقات العمرة المميزة</span>
+  <span class="lang-en">Featured Umrah Packages</span>
+</h2>
 <div class="packages">
   <div class="card">
     <img src="https://images.unsplash.com/photo-1564507592333-c60657eea523?q=400">
     <div class="card-body">
-      <span style="background:green; color:white; padding:4px 10px; border-radius:5px; font-size:12px">اقتصادية</span>
-      <h3 style="margin:10px 0">عمرة 7 أيام</h3>
-      <p>فندق 3 نجوم + إفطار</p>
+      <span style="background:green; color:white; padding:4px 10px; border-radius:5px; font-size:12px">Economic</span>
+      <h3 style="margin:10px 0"><span class="lang-ar">عمرة 7 أيام</span><span class="lang-en">7 Days Umrah</span></h3>
+      <p><span class="lang-ar">فندق 3 نجوم + إفطار</span><span class="lang-en">3 Stars Hotel + Breakfast</span></p>
       <div style="display:flex; justify-content:space-between; margin-top:10px">
         <span class="price">850 $</span>
-        <button class="btn-orange" style="padding:8px 15px">احجز</button>
+        <a href="#book" class="btn-orange" style="padding:8px 15px"><span class="lang-ar">احجز</span><span class="lang-en">Book</span></a>
       </div>
     </div>
   </div>
   <div class="card">
     <img src="https://images.unsplash.com/photo-1591604466107-ec97de577aff?q=400">
     <div class="card-body">
-      <span style="background:var(--orange); color:white; padding:4px 10px; border-radius:5px; font-size:12px">متوسطة</span>
-      <h3 style="margin:10px 0">عمرة 10 أيام</h3>
-      <p>فندق 4 نجوم + إفطار</p>
+      <span style="background:var(--orange); color:white; padding:4px 10px; border-radius:5px; font-size:12px">Standard</span>
+      <h3 style="margin:10px 0"><span class="lang-ar">عمرة 10 أيام</span><span class="lang-en">10 Days Umrah</span></h3>
+      <p><span class="lang-ar">فندق 4 نجوم + إفطار</span><span class="lang-en">4 Stars Hotel + Breakfast</span></p>
       <div style="display:flex; justify-content:space-between; margin-top:10px">
         <span class="price">1,150 $</span>
-        <button class="btn-orange" style="padding:8px 15px">احجز</button>
+        <a href="#book" class="btn-orange" style="padding:8px 15px"><span class="lang-ar">احجز</span><span class="lang-en">Book</span></a>
       </div>
     </div>
   </div>
@@ -138,11 +159,11 @@ input:focus,select:focus{outline:2px solid var(--orange); border-color:var(--ora
     <img src="https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?q=400">
     <div class="card-body">
       <span style="background:var(--blue); color:white; padding:4px 10px; border-radius:5px; font-size:12px">VIP</span>
-      <h3 style="margin:10px 0">عمرة 14 يوم</h3>
-      <p>فندق 5 نجوم + بوفيه</p>
+      <h3 style="margin:10px 0"><span class="lang-ar">عمرة 14 يوم</span><span class="lang-en">14 Days Umrah</span></h3>
+      <p><span class="lang-ar">فندق 5 نجوم + بوفيه</span><span class="lang-en">5 Stars Hotel + Buffet</span></p>
       <div style="display:flex; justify-content:space-between; margin-top:10px">
         <span class="price">1,850 $</span>
-        <button class="btn-orange" style="padding:8px 15px">احجز</button>
+        <a href="#book" class="btn-orange" style="padding:8px 15px"><span class="lang-ar">احجز</span><span class="lang-en">Book</span></a>
       </div>
     </div>
   </div>
@@ -150,10 +171,18 @@ input:focus,select:focus{outline:2px solid var(--orange); border-color:var(--ora
 
 <div class="footer">
   <img src="IMAGE_LOGO" alt="أبو أويس" style="height:60px">
-  <p style="margin:10px 0">أبو أويس للسفر والسياحة</p>
+  <p style="margin:10px 0">Abu Oways Travel & Tourism</p>
   <p>📞 966558840686+</p>
 </div>
 
 <a href="https://wa.me/966558840686" class="whatsapp">💬</a>
+
+<script>
+function toggleLang(){
+  document.body.classList.toggle('en');
+  document.documentElement.dir = document.body.classList.contains('en') ? 'ltr' : 'rtl';
+  document.documentElement.lang = document.body.classList.contains('en') ? 'en' : 'ar';
+}
+</script>
 </body>
 </html>
