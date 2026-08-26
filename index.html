@@ -15,23 +15,36 @@ body{background:var(--light)}
 .nav-links{display:flex; gap:20px; flex-wrap:wrap}
 .nav-links a{text-decoration:none; color:#333; font-weight:700}
 .btn-orange{background:var(--orange); color:white; padding:12px 22px; border:none; border-radius:10px; font-weight:bold; cursor:pointer; font-size:16px; text-decoration:none; display:inline-block}
+
 .hero{background:linear-gradient(rgba(10,46,110,0.75), rgba(10,46,110,0.75)), url('https://images.unsplash.com/photo-1587432967340-d1e3e4b1392d?q=1200') center/cover; color:white; padding:70px 5%; display:flex; gap:40px; flex-wrap:wrap; align-items:center}
 .hero-text{flex:1; min-width:300px}
 .hero-text h1{font-size:42px; font-weight:900; line-height:1.4}
 .hero-text h1 span{color:var(--orange)}
+
 .features-text{flex:1; min-width:250px; color:white}
 .feature-item{margin-bottom:18px}
 .feature-item b{color:var(--orange); font-size:18px}
+
 .form-box{background:white; padding:30px; border-radius:12px; width:90%; max-width:950px; margin:-50px auto 40px; box-shadow:0 8px 25px rgba(0,0,0,0.1)}
 .form-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:15px}
 input,select{width:100%; padding:12px; border:1px solid #ddd; border-radius:8px; font-size:15px}
+input:focus,select:focus{outline:2px solid var(--orange); border-color:var(--orange)}
+
 .packages{display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:25px; padding:50px 5%}
-.card{background:white; border-radius:15px; overflow:hidden; box-shadow:0 6px 20px rgba(0,0,0,0.1); border-top:4px solid var(--orange)}
+.card{background:white; border-radius:15px; overflow:hidden; box-shadow:0 6px 20px rgba(0,0,0,0.1); transition:0.3s; border-top:4px solid var(--orange)}
+.card:hover{transform:translateY(-8px)}
 .card img{width:100%; height:250px; object-fit:cover}
 .card-body{padding:20px; text-align:center}
 .card-body h3{color:var(--blue); font-size:22px; margin-bottom:8px}
+.card-body p{color:#666; margin-bottom:15px}
+
 .footer{background:var(--blue); color:white; text-align:center; padding:40px 20px}
-.whatsapp{position:fixed; bottom:20px; left:20px; background:#25D366; width:55px; height:55px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:white; font-size:30px; text-decoration:none}
+.whatsapp{position:fixed; bottom:20px; left:20px; background:#25D366; width:55px; height:55px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:white; font-size:30px; text-decoration:none; box-shadow:0 4px 10px rgba(0,0,0,0.2)}
+
+@media(max-width:768px){
+.nav-links{display:none}
+.hero{padding:40px 20px; text-align:center}
+.hero-text h1{font-size:32px}
 </style>
 </head>
 <body>
@@ -50,7 +63,8 @@ input,select{width:100%; padding:12px; border:1px solid #ddd; border-radius:8px;
     <a href="#" id="nav4">من نحن</a>
     <a href="#" id="nav5">تواصل معنا</a>
   </div>
-  <img src="https://raw.githubusercontent.com/stal/Owis/main/logo.jpg" alt="أبو أويس" style="height:50px">
+  <!-- اللوغو -->
+  <img src="https://raw.githubusercontent.com/stal/Owis/main/logo.jpg-01.jpg" alt="أبو أويس" style="height:50px">
 </div>
 
 <div class="hero">
@@ -58,6 +72,11 @@ input,select{width:100%; padding:12px; border:1px solid #ddd; border-radius:8px;
     <h1 id="heroTitle">رحلتك إلى <br>بيت الله <br><span>تبدأ من هنا</span></h1>
     <p id="heroDesc" style="margin-top:10px">جميع خدمات السفر والسياحة في مكان واحد</p>
     <a href="#book" class="btn-orange" id="heroBtn" style="margin-top:15px">احجز الآن</a>
+  </div>
+  <div class="features-text">
+    <div class="feature-item"><b id="f1">أسعار تنافسية</b><br><span id="f1d">أفضل الأسعار والعروض</span></div>
+    <div class="feature-item"><b id="f2">خدمة عملاء 24/7</b><br><span id="f2d">نحن معك في كل خطوة</span></div>
+    <div class="feature-item"><b id="f3">حجوزات آمنة</b><br><span id="f3d">حماية ببياناتك 100%</span></div>
   </div>
 </div>
 
@@ -67,21 +86,22 @@ input,select{width:100%; padding:12px; border:1px solid #ddd; border-radius:8px;
     <input type="hidden" name="_subject" value="New Booking - Abu Oways">
     <input type="hidden" name="_captcha" value="false">
     <div class="form-grid">
-      <input type="text" id="name" name="Full Name" placeholder="الاسم الكامل" required>
-      <input type="tel" id="phone" name="WhatsApp" placeholder="رقم الواتساب" required>
+      <input type="text" id="name" name="Full Name" required>
+      <input type="tel" id="phone" name="WhatsApp" required>
       <select id="service" name="Service" required></select>
-      <input type="text" id="destination" name="Destination" placeholder="الوجهة">
+      <input type="text" id="destination" name="Destination">
       <input type="date" name="Travel Date" id="date">
-      <input type="number" id="persons" name="Persons" placeholder="عدد الأشخاص">
+      <input type="number" id="persons" name="Persons">
     </div>
-    <button class="btn-orange" style="width:100%; margin-top:15px; padding:15px" id="submitBtn">ارسال الطلب</button>
+    <button class="btn-orange" style="width:100%; margin-top:15px; padding:15px" id="submitBtn"></button>
   </form>
 </div>
 
 <h2 style="text-align:center; color:var(--blue); margin-bottom:20px" id="servicesTitle">خدماتنا المميزة</h2>
 <div class="packages">
+  <!-- 1. حجوزات الطيران -->
   <div class="card">
-    <img src="https://raw.githubusercontent.com/stal/Owis/main/plane.png" alt="حجوزات الطيران">
+    <img src="https://raw.githubusercontent.com/stal/Owis/main/plane.jpg-01%20(1).png" alt="حجوزات الطيران">
     <div class="card-body">
       <h3 id="s1">حجوزات الطيران</h3>
       <p id="s1d">أفضل الأسعار لجميع الوجهات العالمية</p>
@@ -89,8 +109,9 @@ input,select{width:100%; padding:12px; border:1px solid #ddd; border-radius:8px;
     </div>
   </div>
 
+  <!-- 2. تأشيرات العمرة الإلكترونية -->
   <div class="card">
-    <img src="https://raw.githubusercontent.com/stal/Owis/main/umrah.png" alt="تأشيرات العمرة">
+    <img src="https://raw.githubusercontent.com/stal/Owis/main/umrah.jpg-01.png" alt="تأشيرات العمرة">
     <div class="card-body">
       <h3 id="s2">تأشيرات العمرة الإلكترونية</h3>
       <p id="s2d">اصدار سريع خلال 24 ساعة</p>
@@ -98,8 +119,9 @@ input,select{width:100%; padding:12px; border:1px solid #ddd; border-radius:8px;
     </div>
   </div>
 
+  <!-- 3. تأمين الزيارات العائلية -->
   <div class="card">
-    <img src="https://raw.githubusercontent.com/stal/Owis/main/insurance.png" alt="تأمين الزيارات">
+    <img src="https://raw.githubusercontent.com/stal/Owis/main/insurance.jpg-01.png" alt="تأمين الزيارات">
     <div class="card-body">
       <h3 id="s3">تأمين الزيارات العائلية</h3>
       <p id="s3d">راحة بالك... عائلتك في أمان</p>
@@ -109,9 +131,11 @@ input,select{width:100%; padding:12px; border:1px solid #ddd; border-radius:8px;
 </div>
 
 <div class="footer">
-  <img src="https://raw.githubusercontent.com/stal/Owis/main/logo.jpg" alt="أبو أويس" style="height:60px; background:white; padding:10px; border-radius:10px">
+  <!-- اللوغو في الفوتر -->
+  <img src="https://raw.githubusercontent.com/stal/Owis/main/logo.jpg-01.jpg" alt="أبو أويس" style="height:60px; background:white; padding:10px; border-radius:10px">
   <p id="footer1">أبو أويس للسفر والسياحة</p>
   <p id="footer2">جميع الحقوق محفوظة © 2026</p>
+  <p>📞 966558840686+</p>
 </div>
 
 <a href="https://wa.me/966558840686" class="whatsapp">💬</a>
@@ -124,6 +148,7 @@ const dict = {
     nav1: "الرئيسية", nav2: "خدماتنا", nav3: "الحجز", nav4: "من نحن", nav5: "تواصل معنا",
     heroTitle: 'رحلتك إلى <br>بيت الله <br><span style="color:var(--orange)">تبدأ من هنا</span>',
     heroDesc: "جميع خدمات السفر والسياحة في مكان واحد", heroBtn: "احجز الآن",
+    f1: "أسعار تنافسية", f1d: "أفضل الأسعار والعروض", f2: "خدمة عملاء 24/7", f2d: "نحن معك في كل خطوة", f3: "حجوزات آمنة", f3d: "حماية ببياناتك 100%",
     formTitle: "نموذج الحجز السريع", name: "الاسم الكامل", phone: "رقم الواتساب", destination: "الوجهة", persons: "عدد الأشخاص", submit: "ارسال الطلب", date: "تاريخ السفر",
     services: ["اختر الخدمة", "حجوزات الطيران", "حجوزات البواخر", "تأشيرات العمرة الإلكترونية", "تأمين الزيارات", "تجديد الزيارات العائلية", "استخراج الرخصة الدولية"],
     servicesTitle: "خدماتنا المميزة", s1: "حجوزات الطيران", s1d: "أفضل الأسعار لجميع الوجهات العالمية", s1b: "احجز الآن",
@@ -136,6 +161,7 @@ const dict = {
     nav1: "Home", nav2: "Services", nav3: "Booking", nav4: "About", nav5: "Contact",
     heroTitle: 'Your Journey to <br>Allah\'s House <br><span style="color:var(--orange)">Starts Here</span>',
     heroDesc: "All travel & tourism services in one place", heroBtn: "Book Now",
+    f1: "Competitive Prices", f1d: "Best prices & offers", f2: "24/7 Support", f2d: "We are with you every step", f3: "Secure Booking", f3d: "100% data protection",
     formTitle: "Quick Booking Form", name: "Full Name", phone: "WhatsApp Number", destination: "Destination", persons: "Number of Persons", submit: "Send Request", date: "Travel Date",
     services: ["Select Service", "Flight Booking", "Ferry Booking", "E-Umrah Visa", "Visit Insurance", "Family Visit Renewal", "International Driving License"],
     servicesTitle: "Our Featured Services", s1: "Flight Booking", s1d: "Best prices for all global destinations", s1b: "Book Now",
@@ -149,7 +175,7 @@ function setLang(lang){
   document.documentElement.lang = lang; document.documentElement.dir = lang === 'ar'? 'rtl' : 'ltr'; document.title = t.title;
   for(let id in t){ if(id === 'services') continue; if(document.getElementById(id)){ document.getElementById(id).innerHTML = t[id]; } }
   const direction = lang === 'ar'? 'rtl' : 'ltr'; const align = lang === 'ar'? 'right' : 'left';
-  ['name','phone','destination','persons','service','date'].forEach(id=>{ if(document.getElementById(id)){document.getElementById(id).placeholder = t[id]; document.getElementById(id).style.direction = direction; document.getElementById(id).style.textAlign = align;} });
+  ['name','phone','destination','persons','service','date'].forEach(id=>{ document.getElementById(id).placeholder = t[id]; document.getElementById(id).style.direction = direction; document.getElementById(id).style.textAlign = align; });
   const serviceSelect = document.getElementById('service'); serviceSelect.innerHTML = ''; t.services.forEach(s => { const option = document.createElement('option'); option.text = s; option.value = s; serviceSelect.add(option); });
 }
 function toggleLang(){ currentLang = currentLang === 'ar'? 'en' : 'ar'; setLang(currentLang); }
