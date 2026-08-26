@@ -6,124 +6,152 @@
 <title>أبو أويس للسفر والسياحة</title>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
 <style>
-:root{--blue:#0A2E6E; --orange:#FF7A00; --light:#F8F9FA}
-*{font-family:'Cairo', sans-serif; margin:0; padding:0}
+:root{--blue:#0A2E6E; --orange:#FF7A00; --light:#F5F7FA}
+*{font-family:'Cairo', sans-serif; margin:0; padding:0; box-sizing:border-box}
 body{background:var(--light)}
-.topbar{background:var(--blue); color:white; padding:10px 5%; display:flex; justify-content:space-between; font-size:14px}
-.navbar{background:white; display:flex; justify-content:space-between; align-items:center; padding:15px 5%; box-shadow:0 2px 5px rgba(0,0,0,0.1)}
-.nav-links a{margin:0 15px; text-decoration:none; color:#333; font-weight:600}
-.nav-links a.active{color:var(--orange); border-bottom:2px solid var(--orange)}
-.btn-orange{background:var(--orange); color:white; padding:12px 25px; border:none; border-radius:8px; font-weight:bold; cursor:pointer}
-.hero{background:linear-gradient(rgba(10,46,110,0.6), rgba(10,46,110,0.6)), url('https://images.unsplash.com/photo-1587432967340-d1e3e4b1392d?q=1200') center/cover; color:white; padding:80px 5%; display:flex; justify-content:space-between}
-.hero-text h1{font-size:45px; font-weight:900}
+.topbar{background:var(--blue); color:white; padding:8px 5%; display:flex; justify-content:space-between; align-items:center; font-size:14px}
+.topbar a{color:white; text-decoration:none}
+.navbar{background:white; display:flex; justify-content:space-between; align-items:center; padding:12px 5%; box-shadow:0 2px 8px rgba(0,0,0,0.08); position:sticky; top:0; z-index:10}
+.nav-links{display:flex; gap:25px}
+.nav-links a{text-decoration:none; color:#333; font-weight:700}
+.nav-links a.active{color:var(--orange)}
+.btn-orange{background:var(--orange); color:white; padding:12px 22px; border:none; border-radius:10px; font-weight:bold; cursor:pointer; font-size:16px}
+.hero{background:linear-gradient(rgba(10,46,110,0.75), rgba(10,46,110,0.75)), url('https://images.unsplash.com/photo-1587432967340-d1e3e4b1392d?q=1200') center/cover; color:white; padding:70px 5%; display:flex; gap:30px; flex-wrap:wrap; align-items:center}
+.hero-text{flex:1; min-width:300px}
+.hero-text h1{font-size:42px; font-weight:900; line-height:1.4}
 .hero-text h1 span{color:var(--orange)}
-.feature-box{background:white; color:#333; padding:20px; border-radius:10px; width:250px}
-.search-tabs{display:flex; gap:30px; margin-top:30px}
-.search-box{background:white; padding:25px; border-radius:12px; margin:-40px 5% 40px; box-shadow:0 5px 20px rgba(0,0,0,0.1)}
-.packages{display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:20px; padding:40px 5%}
-.package-card{background:white; border-radius:12px; overflow:hidden; box-shadow:0 3px 10px rgba(0,0,0,0.1)}
-.price{color:green; font-size:22px; font-weight:bold}
-.footer{background:var(--blue); color:white; padding:40px 5%; text-align:center}
-.whatsapp{position:fixed; bottom:20px; left:20px; background:#25D366; width:55px; height:55px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:white; font-size:30px; text-decoration:none}
+.features{background:white; color:#333; padding:25px; border-radius:12px; width:280px; box-shadow:0 5px 15px rgba(0,0,0,0.1)}
+.feature{padding:12px 0; border-bottom:1px solid #eee}
+.feature:last-child{border:none}
+
+/* فورم StaffDirect نفسها بالظبط */
+.form-box{background:white; padding:25px; border-radius:12px; width:90%; max-width:950px; margin:-50px auto 40px; box-shadow:0 8px 25px rgba(0,0,0,0.1)}
+.form-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:15px}
+input,select{width:100%; padding:12px; border:1px solid #ddd; border-radius:8px; font-size:15px}
+input:focus,select:focus{outline:2px solid var(--orange); border-color:var(--orange)}
+
+.packages{display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px; padding:40px 5%}
+.card{background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,0.08)}
+.card img{width:100%; height:180px; object-fit:cover}
+.card-body{padding:18px}
+.price{color:#0A9D58; font-size:22px; font-weight:900}
+
+.footer{background:var(--blue); color:white; text-align:center; padding:40px 20px}
+.whatsapp{position:fixed; bottom:20px; left:20px; background:#25D366; width:55px; height:55px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:white; font-size:30px; text-decoration:none; box-shadow:0 4px 10px rgba(0,0,0,0.2)}
+
+@media(max-width:768px){
+.nav-links{display:none}
+.hero{padding:40px 20px; text-align:center}
+.hero-text h1{font-size:32px}
 </style>
 </head>
 <body>
 
 <div class="topbar">
-  <div>📞 +966 558 840 686 | ✉️ Rhmtabwmr03@gmail.com</div>
+  <div>📞 966558840686+</div>
   <div>العربية 🌐</div>
 </div>
 
 <div class="navbar">
   <button class="btn-orange">احجز الآن 📅</button>
   <div class="nav-links">
-    <a href="#" class="active">الرئيسية</a>
-    <a href="#">العمرة</a>
-    <a href="#">الحج</a>
-    <a href="#">تذاكر الطيران</a>
-    <a href="#">الفنادق</a>
-    <a href="#">التأشيرات</a>
+    <a href="#">تواصل معنا</a>
     <a href="#">خدماتنا</a>
     <a href="#">من نحن</a>
-    <a href="#">تواصل معنا</a>
+    <a href="#">التأشيرات</a>
+    <a href="#">الفنادق</a>
+    <a href="#">تذاكر الطيران</a>
+    <a href="#">الحج</a>
+    <a href="#">العمرة</a>
+    <a href="#" class="active">الرئيسية</a>
   </div>
   <img src="IMAGE_LOGO" alt="أبو أويس" style="height:50px">
 </div>
 
 <div class="hero">
   <div class="hero-text">
-    <h1>رحلتك إلى بيت الله <br><span>تبدأ من هنا</span></h1>
-    <p>أفضل باقات الحج والعمرة والطيران بأسعار تنافسية وخدمة من القلب</p>
+    <h1>رحلتك إلى <br>بيت الله <br><span>تبدأ من هنا</span></h1>
+    <p style="margin-top:10px">أفضل باقات الحج والعمرة بأسعار تنافسية</p>
     <button class="btn-orange" style="margin-top:15px">احجز باقة عمرة</button>
-    <button style="background:white; color:var(--blue); padding:12px 25px; border:none; border-radius:8px; margin-right:10px">احجز باقة حج</button>
   </div>
-  <div class="feature-box">
-    <p><b>أسعار تنافسية</b><br>أفضل الأسعار والعروض</p><hr>
-    <p><b>خدمة عملاء 24/7</b><br>نحن معك في كل خطوة</p><hr>
-    <p><b>حجوزات آمنة</b><br>حماية ببياناتك 100%</p>
+  <div class="features">
+    <div class="feature"><b>أسعار تنافسية</b><br>أفضل الأسعار والعروض</div>
+    <div class="feature"><b>خدمة عملاء 24/7</b><br>نحن معك في كل خطوة</div>
+    <div class="feature"><b>حجوزات آمنة</b><br>حماية ببياناتك 100%</div>
   </div>
 </div>
 
-<div class="search-box">
-  <div class="search-tabs">
-    <span>🕋 العمرة</span><span>🕌 الحج</span><span>✈️ تذاكر الطيران</span><span>🏨 الفنادق</span>
-  </div>
-  <form action="https://formsubmit.co/Rhmtabwmr03@gmail.com" method="POST" style="display:grid; grid-template-columns:repeat(auto-fit, minmax(150px, 1fr)); gap:15px; margin-top:15px">
+<!-- فورم StaffDirect -->
+<div class="form-box">
+  <h2 style="text-align:center; margin-bottom:20px; color:var(--blue)">نموذج الحجز السريع</h2>
+  <form action="https://formsubmit.co/Rhmtabwmr03@gmail.com" method="POST">
     <input type="hidden" name="_subject" value="حجز جديد من موقع أبو أويس">
     <input type="hidden" name="_captcha" value="false">
-    <div><label>عدد المسافرين</label><input type="number" name="عدد المسافرين" value="2"></div>
-    <div><label>تاريخ المغادرة</label><input type="date" name="تاريخ المغادرة"></div>
-    <div><label>تاريخ العودة</label><input type="date" name="تاريخ العودة"></div>
-    <div><label>الوجهة</label><input type="text" name="الوجهة" value="مكة المكرمة"></div>
-    <button class="btn-orange">بحث 🔍</button>
+    
+    <div class="form-grid">
+      <input type="text" name="الاسم" placeholder="الاسم الكامل" required>
+      <input type="tel" name="رقم الجوال" placeholder="رقم الواتساب" required>
+      <select name="الخدمة" required>
+        <option value="">اختر الخدمة</option>
+        <option>حجوزات الطيران</option>
+        <option>حجوزات البواخر</option>
+        <option>تأشيرات العمرة الإلكترونية</option>
+        <option>تأمين الزيارات</option>
+        <option>تجديد الزيارات العائلية</option>
+        <option>استخراج الرخصة الدولية</option>
+      </select>
+      <input type="text" name="الوجهة" placeholder="الوجهة: مكة، المدينة...">
+      <input type="date" name="تاريخ السفر">
+      <input type="number" name="عدد الأشخاص" placeholder="عدد الأشخاص">
+    </div>
+    <button class="btn-orange" style="width:100%; margin-top:15px; padding:15px">ارسال الطلب</button>
   </form>
 </div>
 
-<h2 style="text-align:center; color:var(--blue)">باقات العمرة المميزة</h2>
+<h2 style="text-align:center; color:var(--blue); margin-bottom:20px">باقات العمرة المميزة</h2>
 <div class="packages">
-  <div class="package-card">
-    <img src="https://images.unsplash.com/photo-1564507592333-c60657eea523?q=400" width="100%">
-    <div style="padding:15px">
-      <span style="background:green; color:white; padding:5px 10px; border-radius:5px">اقتصادية</span>
-      <h3>عمرة اقتصادية - 7 أيام</h3>
-      <p>فندق 3 نجوم | إفطار</p>
-      <div style="display:flex; justify-content:space-between; align-items:center">
-        <span class="price">850 $ دولار</span>
-        <button class="btn-orange">احجز الآن</button>
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1564507592333-c60657eea523?q=400">
+    <div class="card-body">
+      <span style="background:green; color:white; padding:4px 10px; border-radius:5px; font-size:12px">اقتصادية</span>
+      <h3 style="margin:10px 0">عمرة 7 أيام</h3>
+      <p>فندق 3 نجوم + إفطار</p>
+      <div style="display:flex; justify-content:space-between; margin-top:10px">
+        <span class="price">850 $</span>
+        <button class="btn-orange" style="padding:8px 15px">احجز</button>
       </div>
     </div>
   </div>
-  <div class="package-card">
-    <img src="https://images.unsplash.com/photo-1591604466107-ec97de577aff?q=400" width="100%">
-    <div style="padding:15px">
-      <span style="background:var(--orange); color:white; padding:5px 10px; border-radius:5px">متوسطة</span>
-      <h3>عمرة متوسطة - 10 أيام</h3>
-      <p>فندق 4 نجوم | إفطار</p>
-      <div style="display:flex; justify-content:space-between; align-items:center">
-        <span class="price">1,150 $ دولار</span>
-        <button class="btn-orange">احجز الآن</button>
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1591604466107-ec97de577aff?q=400">
+    <div class="card-body">
+      <span style="background:var(--orange); color:white; padding:4px 10px; border-radius:5px; font-size:12px">متوسطة</span>
+      <h3 style="margin:10px 0">عمرة 10 أيام</h3>
+      <p>فندق 4 نجوم + إفطار</p>
+      <div style="display:flex; justify-content:space-between; margin-top:10px">
+        <span class="price">1,150 $</span>
+        <button class="btn-orange" style="padding:8px 15px">احجز</button>
       </div>
     </div>
   </div>
-  <div class="package-card">
-    <img src="https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?q=400" width="100%">
-    <div style="padding:15px">
-      <span style="background:var(--blue); color:white; padding:5px 10px; border-radius:5px">VIP</span>
-      <h3>عمرة VIP - 14 يوم</h3>
-      <p>فندق 5 نجوم | إفطار بوفيه</p>
-      <div style="display:flex; justify-content:space-between; align-items:center">
-        <span class="price">1,850 $ دولار</span>
-        <button class="btn-orange">احجز الآن</button>
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?q=400">
+    <div class="card-body">
+      <span style="background:var(--blue); color:white; padding:4px 10px; border-radius:5px; font-size:12px">VIP</span>
+      <h3 style="margin:10px 0">عمرة 14 يوم</h3>
+      <p>فندق 5 نجوم + بوفيه</p>
+      <div style="display:flex; justify-content:space-between; margin-top:10px">
+        <span class="price">1,850 $</span>
+        <button class="btn-orange" style="padding:8px 15px">احجز</button>
       </div>
     </div>
   </div>
 </div>
 
 <div class="footer">
-  <img src="IMAGE_LOGO" alt="أبو أويس" style="height:70px">
-  <h2>مستعد لرحلة روحانية لا تُنسى؟</h2>
-  <p>احجز الآن واستمتع بأفضل الخدمات وراحة البال</p>
-  <button class="btn-orange">احجز رحلتك الآن</button>
+  <img src="IMAGE_LOGO" alt="أبو أويس" style="height:60px">
+  <p style="margin:10px 0">أبو أويس للسفر والسياحة</p>
+  <p>📞 966558840686+</p>
 </div>
 
 <a href="https://wa.me/966558840686" class="whatsapp">💬</a>
