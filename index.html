@@ -27,14 +27,17 @@ body{background:var(--light)}
 
 .form-box{background:white; padding:30px; border-radius:12px; width:90%; max-width:950px; margin:-50px auto 40px; box-shadow:0 8px 25px rgba(0,0,0,0.1)}
 .form-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:15px}
-input,select{width:100%; padding:12px; border:1px solid #ddd; border-radius:8px; font-size:15px; direction:ltr; text-align:left}
+input,select{width:100%; padding:12px; border:1px solid #ddd; border-radius:8px; font-size:15px}
 input:focus,select:focus{outline:2px solid var(--orange); border-color:var(--orange)}
 
-/* كروت الخدمات الجديدة */
-.services-cards{display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px; padding:40px 5%}
-.service-card{background:white; border-radius:12px; padding:25px; box-shadow:0 4px 12px rgba(0,0,0,0.08); border-right:5px solid var(--orange); transition:0.3s; text-align:center}
-.service-card:hover{transform:translateY(-5px)}
-.service-card h3{color:var(--blue); font-size:20px; margin-bottom:10px}
+/* تصميم الكروت الاحترافي */
+.packages{display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:25px; padding:50px 5%}
+.card{background:white; border-radius:15px; overflow:hidden; box-shadow:0 6px 20px rgba(0,0,0,0.1); transition:0.3s; border-top:4px solid var(--orange)}
+.card:hover{transform:translateY(-8px)}
+.card img{width:100%; height:220px; object-fit:cover}
+.card-body{padding:20px; text-align:center}
+.card-body h3{color:var(--blue); font-size:22px; margin-bottom:8px}
+.card-body p{color:#666; margin-bottom:15px}
 
 .footer{background:var(--blue); color:white; text-align:center; padding:40px 20px}
 .whatsapp{position:fixed; bottom:20px; left:20px; background:#25D366; width:55px; height:55px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:white; font-size:30px; text-decoration:none; box-shadow:0 4px 10px rgba(0,0,0,0.2)}
@@ -64,7 +67,7 @@ body.en{direction:ltr; text-align:left}
   </a>
   <div class="nav-links">
     <a href="#"><span class="lang-ar">الرئيسية</span><span class="lang-en">Home</span></a>
-    <a href="#services"><span class="lang-ar">خدماتنا</span><span class="lang-en">Our Services</span></a>
+    <a href="#services"><span class="lang-ar">خدماتنا</span><span class="lang-en">Services</span></a>
     <a href="#book"><span class="lang-ar">الحجز</span><span class="lang-en">Booking</span></a>
   </div>
   <img src="IMAGE_LOGO" alt="أبو أويس" style="height:50px">
@@ -110,35 +113,35 @@ body.en{direction:ltr; text-align:left}
   </form>
 </div>
 
-<!-- قسم الخدمات بدل باقات العمرة -->
+<!-- 3 اقسام احترافية بالصور -->
 <h2 style="text-align:center; color:var(--blue); margin-bottom:20px" id="services">
-  <span class="lang-ar">خدماتنا</span>
-  <span class="lang-en">Our Services</span>
+  <span class="lang-ar">خدماتنا المميزة</span>
+  <span class="lang-en">Our Featured Services</span>
 </h2>
-<div class="services-cards">
-  <div class="service-card">
-    <h3><span class="lang-ar">حجوزات الطيران</span><span class="lang-en">Flight Booking</span></h3>
-    <a href="#book" class="btn-orange" style="padding:10px 20px; margin-top:10px; display:inline-block"><span class="lang-ar">احجز الآن</span><span class="lang-en">Book Now</span></a>
+<div class="packages">
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1436491865332-7a61a109cc05?q=400" alt="الطيران">
+    <div class="card-body">
+      <h3><span class="lang-ar">حجوزات الطيران</span><span class="lang-en">Flight Booking</span></h3>
+      <p><span class="lang-ar">أفضل الأسعار لجميع الوجهات العالمية</span><span class="lang-en">Best prices for all global destinations</span></p>
+      <a href="#book" class="btn-orange"><span class="lang-ar">احجز الآن</span><span class="lang-en">Book Now</span></a>
+    </div>
   </div>
-  <div class="service-card">
-    <h3><span class="lang-ar">حجوزات البواخر</span><span class="lang-en">Ferry Booking</span></h3>
-    <a href="#book" class="btn-orange" style="padding:10px 20px; margin-top:10px; display:inline-block"><span class="lang-ar">احجز الآن</span><span class="lang-en">Book Now</span></a>
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=400" alt="العمرة">
+    <div class="card-body">
+      <h3><span class="lang-ar">تأشيرات العمرة الإلكترونية</span><span class="lang-en">E-Umrah Visa</span></h3>
+      <p><span class="lang-ar">اصدار سريع خلال 24 ساعة</span><span class="lang-en">Fast issuance within 24 hours</span></p>
+      <a href="#book" class="btn-orange"><span class="lang-ar">احجز الآن</span><span class="lang-en">Book Now</span></a>
+    </div>
   </div>
-  <div class="service-card">
-    <h3><span class="lang-ar">تأشيرات العمرة الإلكترونية</span><span class="lang-en">E-Umrah Visa</span></h3>
-    <a href="#book" class="btn-orange" style="padding:10px 20px; margin-top:10px; display:inline-block"><span class="lang-ar">احجز الآن</span><span class="lang-en">Book Now</span></a>
-  </div>
-  <div class="service-card">
-    <h3><span class="lang-ar">تأمين الزيارات</span><span class="lang-en">Visit Insurance</span></h3>
-    <a href="#book" class="btn-orange" style="padding:10px 20px; margin-top:10px; display:inline-block"><span class="lang-ar">احجز الآن</span><span class="lang-en">Book Now</span></a>
-  </div>
-  <div class="service-card">
-    <h3><span class="lang-ar">تجديد الزيارات العائلية</span><span class="lang-en">Family Visit Renewal</span></h3>
-    <a href="#book" class="btn-orange" style="padding:10px 20px; margin-top:10px; display:inline-block"><span class="lang-ar">احجز الآن</span><span class="lang-en">Book Now</span></a>
-  </div>
-  <div class="service-card">
-    <h3><span class="lang-ar">استخراج الرخصة الدولية</span><span class="lang-en">International Driving License</span></h3>
-    <a href="#book" class="btn-orange" style="padding:10px 20px; margin-top:10px; display:inline-block"><span class="lang-ar">احجز الآن</span><span class="lang-en">Book Now</span></a>
+  <div class="card">
+    <img src="https://images.unsplash.com/photo-1523906834658-6e24ef2386f9?q=400" alt="التأمين">
+    <div class="card-body">
+      <h3><span class="lang-ar">تأمين الزيارات</span><span class="lang-en">Visit Insurance</span></h3>
+      <p><span class="lang-ar">تأمين شامل لجميع انواع الزيارات</span><span class="lang-en">Comprehensive insurance for all visit types</span></p>
+      <a href="#book" class="btn-orange"><span class="lang-ar">احجز الآن</span><span class="lang-en">Book Now</span></a>
+    </div>
   </div>
 </div>
 
@@ -163,10 +166,29 @@ const placeholders = {
 
 function updateLanguage(isEnglish){
   const lang = isEnglish? 'en' : 'ar';
+  // تغيير اتجاه النص في الحقول
+  const direction = isEnglish? 'ltr' : 'rtl';
+  const textAlign = isEnglish? 'left' : 'right';
+
   document.getElementById('name').placeholder = placeholders[lang].name;
+  document.getElementById('name').style.direction = direction;
+  document.getElementById('name').style.textAlign = textAlign;
+
   document.getElementById('phone').placeholder = placeholders[lang].phone;
+  document.getElementById('phone').style.direction = direction;
+  document.getElementById('phone').style.textAlign = textAlign;
+
   document.getElementById('destination').placeholder = placeholders[lang].destination;
+  document.getElementById('destination').style.direction = direction;
+  document.getElementById('destination').style.textAlign = textAlign;
+
   document.getElementById('persons').placeholder = placeholders[lang].persons;
+  document.getElementById('persons').style.direction = direction;
+  document.getElementById('persons').style.textAlign = textAlign;
+
+  document.getElementById('service').style.direction = direction;
+  document.getElementById('service').style.textAlign = textAlign;
+
   document.getElementById('submitBtn').innerText = placeholders[lang].submit;
 
   const serviceSelect = document.getElementById('service');
