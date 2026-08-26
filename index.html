@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
@@ -22,20 +22,23 @@ body{background:var(--light)}
 .hero-text h1{font-size:42px; font-weight:900; line-height:1.4}
 .hero-text h1 span{color:var(--orange)}
 
-/* المميزات نص فقط بنفس هوية الموقع */
 .features-text{flex:1; min-width:250px; color:white}
 .feature-item{margin-bottom:18px}
 .feature-item b{color:var(--orange); font-size:18px}
 
-/* فورم StaffDirect */
 .form-box{background:white; padding:30px; border-radius:12px; width:90%; max-width:950px; margin:-50px auto 40px; box-shadow:0 8px 25px rgba(0,0,0,0.1)}
 .form-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:15px}
-input,select{width:100%; padding:12px; border:1px solid #ddd; border-radius:8px; font-size:15px; direction:ltr; text-align:left} /* اتجاه واحد LTR */
+input,select{width:100%; padding:12px; border:1px solid #ddd; border-radius:8px; font-size:15px; direction:ltr; text-align:left}
 input:focus,select:focus{outline:2px solid var(--orange); border-color:var(--orange)}
 
+.services-section{padding:40px 5%}
+.services-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:20px}
+.service-card{background:white; padding:20px; border-radius:10px; border-right:4px solid var(--orange); box-shadow:0 3px 8px rgba(0,0,0,0.05)}
+
 .packages{display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px; padding:40px 5%}
-.card{background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,0.08)}
-.card img{width:100%; height:180px; object-fit:cover}
+.card{background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,0.08); transition:0.3s}
+.card:hover{transform:translateY(-5px)}
+.card img{width:100%; height:200px; object-fit:cover}
 .card-body{padding:18px}
 .price{color:#0A9D58; font-size:22px; font-weight:900}
 
@@ -43,8 +46,8 @@ input:focus,select:focus{outline:2px solid var(--orange); border-color:var(--ora
 .whatsapp{position:fixed; bottom:20px; left:20px; background:#25D366; width:55px; height:55px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:white; font-size:30px; text-decoration:none; box-shadow:0 4px 10px rgba(0,0,0,0.2)}
 
 .lang-en{display:none}
-body.en .lang-ar{display:none}
-body.en .lang-en{display:block}
+body.en.lang-ar{display:none}
+body.en.lang-en{display:block}
 body.en{direction:ltr; text-align:left}
 
 @media(max-width:768px){
@@ -67,11 +70,9 @@ body.en{direction:ltr; text-align:left}
   </a>
   <div class="nav-links">
     <a href="#"><span class="lang-ar">الرئيسية</span><span class="lang-en">Home</span></a>
-    <a href="#"><span class="lang-ar">العمرة</span><span class="lang-en">Umrah</span></a>
-    <a href="#"><span class="lang-ar">الحج</span><span class="lang-en">Hajj</span></a>
-    <a href="#"><span class="lang-ar">تذاكر الطيران</span><span class="lang-en">Flights</span></a>
-    <a href="#"><span class="lang-ar">الفنادق</span><span class="lang-en">Hotels</span></a>
-    <a href="#"><span class="lang-ar">خدماتنا</span><span class="lang-en">Services</span></a>
+    <a href="#services"><span class="lang-ar">خدماتنا</span><span class="lang-en">Our Services</span></a>
+    <a href="#book"><span class="lang-ar">الحجز</span><span class="lang-en">Booking</span></a>
+    <a href="#"><span class="lang-ar">تواصل معنا</span><span class="lang-en">Contact</span></a>
   </div>
   <img src="IMAGE_LOGO" alt="أبو أويس" style="height:50px">
 </div>
@@ -94,6 +95,22 @@ body.en{direction:ltr; text-align:left}
   </div>
 </div>
 
+<!-- قسم الخدمات - نفس اللي في الفورم -->
+<div class="services-section" id="services">
+  <h2 style="text-align:center; color:var(--blue); margin-bottom:30px">
+    <span class="lang-ar">خدماتنا</span>
+    <span class="lang-en">Our Services</span>
+  </h2>
+  <div class="services-grid">
+    <div class="service-card"><h3><span class="lang-ar">حجوزات الطيران</span><span class="lang-en">Flight Booking</span></h3></div>
+    <div class="service-card"><h3><span class="lang-ar">حجوزات البواخر</span><span class="lang-en">Ferry Booking</span></h3></div>
+    <div class="service-card"><h3><span class="lang-ar">تأشيرات العمرة الإلكترونية</span><span class="lang-en">E-Umrah Visa</span></h3></div>
+    <div class="service-card"><h3><span class="lang-ar">تأمين الزيارات</span><span class="lang-en">Visit Insurance</span></h3></div>
+    <div class="service-card"><h3><span class="lang-ar">تجديد الزيارات العائلية</span><span class="lang-en">Family Visit Renewal</span></h3></div>
+    <div class="service-card"><h3><span class="lang-ar">استخراج الرخصة الدولية</span><span class="lang-en">International Driving License</span></h3></div>
+  </div>
+</div>
+
 <!-- الفورم -->
 <div class="form-box" id="book">
   <h2 style="text-align:center; margin-bottom:20px; color:var(--blue)">
@@ -103,26 +120,16 @@ body.en{direction:ltr; text-align:left}
   <form action="https://formsubmit.co/Rhmtabwmr03@gmail.com" method="POST">
     <input type="hidden" name="_subject" value="New Booking - Abu Oways">
     <input type="hidden" name="_captcha" value="false">
-    
+
     <div class="form-grid">
-      <input type="text" name="Full Name" placeholder="Full Name / الاسم الكامل" required>
-      <input type="tel" name="WhatsApp" placeholder="WhatsApp Number / رقم الواتساب" required>
-      <select name="Service" required>
-        <option value=""><span class="lang-ar">اختر الخدمة</span><span class="lang-en">Select Service</span></option>
-        <option><span class="lang-ar">حجوزات الطيران</span><span class="lang-en">Flight Booking</span></option>
-        <option><span class="lang-ar">حجوزات البواخر</span><span class="lang-en">Ferry Booking</span></option>
-        <option><span class="lang-ar">تأشيرات العمرة الإلكترونية</span><span class="lang-en">E-Umrah Visa</span></option>
-        <option><span class="lang-ar">تأمين الزيارات</span><span class="lang-en">Visit Insurance</span></option>
-        <option><span class="lang-ar">تجديد الزيارات العائلية</span><span class="lang-en">Family Visit Renewal</span></option>
-      </select>
-      <input type="text" name="Destination" placeholder="Destination / الوجهة">
+      <input type="text" id="name" name="Full Name" required>
+      <input type="tel" id="phone" name="WhatsApp" required>
+      <select id="service" name="Service" required></select>
+      <input type="text" id="destination" name="Destination">
       <input type="date" name="Travel Date">
-      <input type="number" name="Persons" placeholder="Number of Persons / عدد الأشخاص">
+      <input type="number" id="persons" name="Persons">
     </div>
-    <button class="btn-orange" style="width:100%; margin-top:15px; padding:15px">
-      <span class="lang-ar">ارسال الطلب</span>
-      <span class="lang-en">Send Request</span>
-    </button>
+    <button class="btn-orange" style="width:100%; margin-top:15px; padding:15px" id="submitBtn"></button>
   </form>
 </div>
 
@@ -132,7 +139,7 @@ body.en{direction:ltr; text-align:left}
 </h2>
 <div class="packages">
   <div class="card">
-    <img src="https://images.unsplash.com/photo-1564507592333-c60657eea523?q=400">
+    <img src="https://images.unsplash.com/photo-1587432967340-d1e3e4b1392d?q=400" alt="الكعبة">
     <div class="card-body">
       <span style="background:green; color:white; padding:4px 10px; border-radius:5px; font-size:12px">Economic</span>
       <h3 style="margin:10px 0"><span class="lang-ar">عمرة 7 أيام</span><span class="lang-en">7 Days Umrah</span></h3>
@@ -144,7 +151,7 @@ body.en{direction:ltr; text-align:left}
     </div>
   </div>
   <div class="card">
-    <img src="https://images.unsplash.com/photo-1591604466107-ec97de577aff?q=400">
+    <img src="https://images.unsplash.com/photo-1564507592333-c60657eea523?q=400" alt="الحرم المكي">
     <div class="card-body">
       <span style="background:var(--orange); color:white; padding:4px 10px; border-radius:5px; font-size:12px">Standard</span>
       <h3 style="margin:10px 0"><span class="lang-ar">عمرة 10 أيام</span><span class="lang-en">10 Days Umrah</span></h3>
@@ -156,7 +163,7 @@ body.en{direction:ltr; text-align:left}
     </div>
   </div>
   <div class="card">
-    <img src="https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?q=400">
+    <img src="https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?q=400" alt="فندق 5 نجوم">
     <div class="card-body">
       <span style="background:var(--blue); color:white; padding:4px 10px; border-radius:5px; font-size:12px">VIP</span>
       <h3 style="margin:10px 0"><span class="lang-ar">عمرة 14 يوم</span><span class="lang-en">14 Days Umrah</span></h3>
@@ -178,11 +185,46 @@ body.en{direction:ltr; text-align:left}
 <a href="https://wa.me/966558840686" class="whatsapp">💬</a>
 
 <script>
+const services = {
+  ar: ["اختر الخدمة", "حجوزات الطيران", "حجوزات البواخر", "تأشيرات العمرة الإلكترونية", "تأمين الزيارات", "تجديد الزيارات العائلية", "استخراج الرخصة الدولية"],
+  en: ["Select Service", "Flight Booking", "Ferry Booking", "E-Umrah Visa", "Visit Insurance", "Family Visit Renewal", "International Driving License"]
+};
+
+const placeholders = {
+  ar: {name:"الاسم الكامل", phone:"رقم الواتساب", destination:"الوجهة", persons:"عدد الأشخاص", submit:"ارسال الطلب"},
+  en: {name:"Full Name", phone:"WhatsApp Number", destination:"Destination", persons:"Number of Persons", submit:"Send Request"}
+};
+
+function updateLanguage(isEnglish){
+  const lang = isEnglish? 'en' : 'ar';
+  // تحديث الفورم
+  document.getElementById('name').placeholder = placeholders[lang].name;
+  document.getElementById('phone').placeholder = placeholders[lang].phone;
+  document.getElementById('destination').placeholder = placeholders[lang].destination;
+  document.getElementById('persons').placeholder = placeholders[lang].persons;
+  document.getElementById('submitBtn').innerText = placeholders[lang].submit;
+
+  // تحديث قائمة الخدمات
+  const serviceSelect = document.getElementById('service');
+  serviceSelect.innerHTML = '';
+  services[lang].forEach(s => {
+    const option = document.createElement('option');
+    option.text = s;
+    option.value = s;
+    serviceSelect.add(option);
+  });
+}
+
 function toggleLang(){
   document.body.classList.toggle('en');
-  document.documentElement.dir = document.body.classList.contains('en') ? 'ltr' : 'rtl';
-  document.documentElement.lang = document.body.classList.contains('en') ? 'en' : 'ar';
+  const isEnglish = document.body.classList.contains('en');
+  document.documentElement.dir = isEnglish? 'ltr' : 'rtl';
+  document.documentElement.lang = isEnglish? 'en' : 'ar';
+  updateLanguage(isEnglish);
 }
+
+// تحميل اول مرة بالعربي
+updateLanguage(false);
 </script>
 </body>
-</html>
+</html>         
