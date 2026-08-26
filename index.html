@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8">
@@ -14,7 +14,6 @@ body{background:var(--light)}
 .navbar{background:white; display:flex; justify-content:space-between; align-items:center; padding:12px 5%; box-shadow:0 2px 8px rgba(0,0,0,0.08); position:sticky; top:0; z-index:10}
 .nav-links{display:flex; gap:20px; flex-wrap:wrap}
 .nav-links a{text-decoration:none; color:#333; font-weight:700}
-.nav-links a.active{color:var(--orange)}
 .btn-orange{background:var(--orange); color:white; padding:12px 22px; border:none; border-radius:10px; font-weight:bold; cursor:pointer; font-size:16px; text-decoration:none; display:inline-block}
 
 .hero{background:linear-gradient(rgba(10,46,110,0.75), rgba(10,46,110,0.75)), url('https://images.unsplash.com/photo-1587432967340-d1e3e4b1392d?q=1200') center/cover; color:white; padding:70px 5%; display:flex; gap:40px; flex-wrap:wrap; align-items:center}
@@ -31,16 +30,11 @@ body{background:var(--light)}
 input,select{width:100%; padding:12px; border:1px solid #ddd; border-radius:8px; font-size:15px; direction:ltr; text-align:left}
 input:focus,select:focus{outline:2px solid var(--orange); border-color:var(--orange)}
 
-.services-section{padding:40px 5%}
-.services-grid{display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:20px}
-.service-card{background:white; padding:20px; border-radius:10px; border-right:4px solid var(--orange); box-shadow:0 3px 8px rgba(0,0,0,0.05)}
-
-.packages{display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px; padding:40px 5%}
-.card{background:white; border-radius:12px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,0.08); transition:0.3s}
-.card:hover{transform:translateY(-5px)}
-.card img{width:100%; height:200px; object-fit:cover}
-.card-body{padding:18px}
-.price{color:#0A9D58; font-size:22px; font-weight:900}
+/* كروت الخدمات الجديدة */
+.services-cards{display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px; padding:40px 5%}
+.service-card{background:white; border-radius:12px; padding:25px; box-shadow:0 4px 12px rgba(0,0,0,0.08); border-right:5px solid var(--orange); transition:0.3s; text-align:center}
+.service-card:hover{transform:translateY(-5px)}
+.service-card h3{color:var(--blue); font-size:20px; margin-bottom:10px}
 
 .footer{background:var(--blue); color:white; text-align:center; padding:40px 20px}
 .whatsapp{position:fixed; bottom:20px; left:20px; background:#25D366; width:55px; height:55px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:white; font-size:30px; text-decoration:none; box-shadow:0 4px 10px rgba(0,0,0,0.2)}
@@ -72,7 +66,6 @@ body.en{direction:ltr; text-align:left}
     <a href="#"><span class="lang-ar">الرئيسية</span><span class="lang-en">Home</span></a>
     <a href="#services"><span class="lang-ar">خدماتنا</span><span class="lang-en">Our Services</span></a>
     <a href="#book"><span class="lang-ar">الحجز</span><span class="lang-en">Booking</span></a>
-    <a href="#"><span class="lang-ar">تواصل معنا</span><span class="lang-en">Contact</span></a>
   </div>
   <img src="IMAGE_LOGO" alt="أبو أويس" style="height:50px">
 </div>
@@ -81,33 +74,17 @@ body.en{direction:ltr; text-align:left}
   <div class="hero-text">
     <h1 class="lang-ar">رحلتك إلى <br>بيت الله <br><span>تبدأ من هنا</span></h1>
     <h1 class="lang-en">Your Journey to <br>Allah's House <br><span>Starts Here</span></h1>
-    <p class="lang-ar" style="margin-top:10px">أفضل باقات الحج والعمرة بأسعار تنافسية</p>
-    <p class="lang-en" style="margin-top:10px">Best Hajj & Umrah packages with competitive prices</p>
+    <p class="lang-ar" style="margin-top:10px">جميع خدمات السفر والسياحة في مكان واحد</p>
+    <p class="lang-en" style="margin-top:10px">All travel & tourism services in one place</p>
     <a href="#book" class="btn-orange" style="margin-top:15px">
-      <span class="lang-ar">احجز باقة عمرة</span>
-      <span class="lang-en">Book Umrah Package</span>
+      <span class="lang-ar">احجز الآن</span>
+      <span class="lang-en">Book Now</span>
     </a>
   </div>
   <div class="features-text">
     <div class="feature-item"><b class="lang-ar">أسعار تنافسية</b><b class="lang-en">Competitive Prices</b><br><span class="lang-ar">أفضل الأسعار والعروض</span><span class="lang-en">Best prices & offers</span></div>
     <div class="feature-item"><b class="lang-ar">خدمة عملاء 24/7</b><b class="lang-en">24/7 Support</b><br><span class="lang-ar">نحن معك في كل خطوة</span><span class="lang-en">We are with you every step</span></div>
     <div class="feature-item"><b class="lang-ar">حجوزات آمنة</b><b class="lang-en">Secure Booking</b><br><span class="lang-ar">حماية ببياناتك 100%</span><span class="lang-en">100% data protection</span></div>
-  </div>
-</div>
-
-<!-- قسم الخدمات - نفس اللي في الفورم -->
-<div class="services-section" id="services">
-  <h2 style="text-align:center; color:var(--blue); margin-bottom:30px">
-    <span class="lang-ar">خدماتنا</span>
-    <span class="lang-en">Our Services</span>
-  </h2>
-  <div class="services-grid">
-    <div class="service-card"><h3><span class="lang-ar">حجوزات الطيران</span><span class="lang-en">Flight Booking</span></h3></div>
-    <div class="service-card"><h3><span class="lang-ar">حجوزات البواخر</span><span class="lang-en">Ferry Booking</span></h3></div>
-    <div class="service-card"><h3><span class="lang-ar">تأشيرات العمرة الإلكترونية</span><span class="lang-en">E-Umrah Visa</span></h3></div>
-    <div class="service-card"><h3><span class="lang-ar">تأمين الزيارات</span><span class="lang-en">Visit Insurance</span></h3></div>
-    <div class="service-card"><h3><span class="lang-ar">تجديد الزيارات العائلية</span><span class="lang-en">Family Visit Renewal</span></h3></div>
-    <div class="service-card"><h3><span class="lang-ar">استخراج الرخصة الدولية</span><span class="lang-en">International Driving License</span></h3></div>
   </div>
 </div>
 
@@ -133,46 +110,35 @@ body.en{direction:ltr; text-align:left}
   </form>
 </div>
 
-<h2 style="text-align:center; color:var(--blue); margin-bottom:20px">
-  <span class="lang-ar">باقات العمرة المميزة</span>
-  <span class="lang-en">Featured Umrah Packages</span>
+<!-- قسم الخدمات بدل باقات العمرة -->
+<h2 style="text-align:center; color:var(--blue); margin-bottom:20px" id="services">
+  <span class="lang-ar">خدماتنا</span>
+  <span class="lang-en">Our Services</span>
 </h2>
-<div class="packages">
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1587432967340-d1e3e4b1392d?q=400" alt="الكعبة">
-    <div class="card-body">
-      <span style="background:green; color:white; padding:4px 10px; border-radius:5px; font-size:12px">Economic</span>
-      <h3 style="margin:10px 0"><span class="lang-ar">عمرة 7 أيام</span><span class="lang-en">7 Days Umrah</span></h3>
-      <p><span class="lang-ar">فندق 3 نجوم + إفطار</span><span class="lang-en">3 Stars Hotel + Breakfast</span></p>
-      <div style="display:flex; justify-content:space-between; margin-top:10px">
-        <span class="price">850 $</span>
-        <a href="#book" class="btn-orange" style="padding:8px 15px"><span class="lang-ar">احجز</span><span class="lang-en">Book</span></a>
-      </div>
-    </div>
+<div class="services-cards">
+  <div class="service-card">
+    <h3><span class="lang-ar">حجوزات الطيران</span><span class="lang-en">Flight Booking</span></h3>
+    <a href="#book" class="btn-orange" style="padding:10px 20px; margin-top:10px; display:inline-block"><span class="lang-ar">احجز الآن</span><span class="lang-en">Book Now</span></a>
   </div>
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1564507592333-c60657eea523?q=400" alt="الحرم المكي">
-    <div class="card-body">
-      <span style="background:var(--orange); color:white; padding:4px 10px; border-radius:5px; font-size:12px">Standard</span>
-      <h3 style="margin:10px 0"><span class="lang-ar">عمرة 10 أيام</span><span class="lang-en">10 Days Umrah</span></h3>
-      <p><span class="lang-ar">فندق 4 نجوم + إفطار</span><span class="lang-en">4 Stars Hotel + Breakfast</span></p>
-      <div style="display:flex; justify-content:space-between; margin-top:10px">
-        <span class="price">1,150 $</span>
-        <a href="#book" class="btn-orange" style="padding:8px 15px"><span class="lang-ar">احجز</span><span class="lang-en">Book</span></a>
-      </div>
-    </div>
+  <div class="service-card">
+    <h3><span class="lang-ar">حجوزات البواخر</span><span class="lang-en">Ferry Booking</span></h3>
+    <a href="#book" class="btn-orange" style="padding:10px 20px; margin-top:10px; display:inline-block"><span class="lang-ar">احجز الآن</span><span class="lang-en">Book Now</span></a>
   </div>
-  <div class="card">
-    <img src="https://images.unsplash.com/photo-1590523277543-a94d2e4eb00b?q=400" alt="فندق 5 نجوم">
-    <div class="card-body">
-      <span style="background:var(--blue); color:white; padding:4px 10px; border-radius:5px; font-size:12px">VIP</span>
-      <h3 style="margin:10px 0"><span class="lang-ar">عمرة 14 يوم</span><span class="lang-en">14 Days Umrah</span></h3>
-      <p><span class="lang-ar">فندق 5 نجوم + بوفيه</span><span class="lang-en">5 Stars Hotel + Buffet</span></p>
-      <div style="display:flex; justify-content:space-between; margin-top:10px">
-        <span class="price">1,850 $</span>
-        <a href="#book" class="btn-orange" style="padding:8px 15px"><span class="lang-ar">احجز</span><span class="lang-en">Book</span></a>
-      </div>
-    </div>
+  <div class="service-card">
+    <h3><span class="lang-ar">تأشيرات العمرة الإلكترونية</span><span class="lang-en">E-Umrah Visa</span></h3>
+    <a href="#book" class="btn-orange" style="padding:10px 20px; margin-top:10px; display:inline-block"><span class="lang-ar">احجز الآن</span><span class="lang-en">Book Now</span></a>
+  </div>
+  <div class="service-card">
+    <h3><span class="lang-ar">تأمين الزيارات</span><span class="lang-en">Visit Insurance</span></h3>
+    <a href="#book" class="btn-orange" style="padding:10px 20px; margin-top:10px; display:inline-block"><span class="lang-ar">احجز الآن</span><span class="lang-en">Book Now</span></a>
+  </div>
+  <div class="service-card">
+    <h3><span class="lang-ar">تجديد الزيارات العائلية</span><span class="lang-en">Family Visit Renewal</span></h3>
+    <a href="#book" class="btn-orange" style="padding:10px 20px; margin-top:10px; display:inline-block"><span class="lang-ar">احجز الآن</span><span class="lang-en">Book Now</span></a>
+  </div>
+  <div class="service-card">
+    <h3><span class="lang-ar">استخراج الرخصة الدولية</span><span class="lang-en">International Driving License</span></h3>
+    <a href="#book" class="btn-orange" style="padding:10px 20px; margin-top:10px; display:inline-block"><span class="lang-ar">احجز الآن</span><span class="lang-en">Book Now</span></a>
   </div>
 </div>
 
@@ -197,14 +163,12 @@ const placeholders = {
 
 function updateLanguage(isEnglish){
   const lang = isEnglish? 'en' : 'ar';
-  // تحديث الفورم
   document.getElementById('name').placeholder = placeholders[lang].name;
   document.getElementById('phone').placeholder = placeholders[lang].phone;
   document.getElementById('destination').placeholder = placeholders[lang].destination;
   document.getElementById('persons').placeholder = placeholders[lang].persons;
   document.getElementById('submitBtn').innerText = placeholders[lang].submit;
 
-  // تحديث قائمة الخدمات
   const serviceSelect = document.getElementById('service');
   serviceSelect.innerHTML = '';
   services[lang].forEach(s => {
@@ -223,8 +187,7 @@ function toggleLang(){
   updateLanguage(isEnglish);
 }
 
-// تحميل اول مرة بالعربي
 updateLanguage(false);
 </script>
 </body>
-</html>         
+</html>
