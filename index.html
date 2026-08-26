@@ -54,7 +54,7 @@ input:focus,select:focus{outline:2px solid var(--orange); border-color:var(--ora
     <a href="#" id="nav5">تواصل معنا</a>
   </div>
   <!-- اللوغو -->
-  <img src="https://raw.githubusercontent.com/stal/Owis/main/logo.jpg-01.jpg" alt="أبو أويس" style="height:50px">
+  <img src="https://raw.githubusercontent.com/stal/Owis/main/logo%20-01.jpg" alt="أبو أويس" style="height:50px">
 </div>
 
 <div class="hero">
@@ -111,7 +111,7 @@ input:focus,select:focus{outline:2px solid var(--orange); border-color:var(--ora
 
   <!-- 3. تأمين الزيارات العائلية -->
   <div class="card">
-    <img src="https://raw.githubusercontent.com/stal/Owis/main/insurance.jpg-01.png" alt="تأمين الزيارات">
+    <img src="https://raw.githubusercontent.com/stal/Owis/main/insurance%20-01.png" alt="تأمين الزيارات">
     <div class="card-body">
       <h3 id="s3">تأمين الزيارات العائلية</h3>
       <p id="s3d">راحة بالك... عائلتك في أمان</p>
@@ -122,7 +122,7 @@ input:focus,select:focus{outline:2px solid var(--orange); border-color:var(--ora
 
 <div class="footer">
   <!-- اللوغو في الفوتر -->
-  <img src="https://raw.githubusercontent.com/stal/Owis/main/logo.jpg-01.jpg" alt="أبو أويس" style="height:60px; background:white; padding:10px; border-radius:10px">
+  <img src="https://raw.githubusercontent.com/stal/Owis/main/logo%20-01.jpg" alt="أبو أويس" style="height:60px; background:white; padding:10px; border-radius:10px">
   <p id="footer1">أبو أويس للسفر والسياحة</p>
   <p id="footer2">جميع الحقوق محفوظة © 2026</p>
   <p>📞 966558840686+</p>
@@ -163,7 +163,7 @@ const dict = {
 function setLang(lang){
   const t = dict[lang];
   document.documentElement.lang = lang; document.documentElement.dir = lang === 'ar'? 'rtl' : 'ltr'; document.title = t.title;
-  for(let id in t){ if(id === 'services') continue; if(document.getElementById(id)){ document.getElementById(id).innerHTML = t[id]; } }
+  for(let id in t){ if(id === 'services') continue; if(document.getElementById(id)){ document.getElementById(id).innerHTML = t[id]; }
   const direction = lang === 'ar'? 'rtl' : 'ltr'; const align = lang === 'ar'? 'right' : 'left';
   ['name','phone','destination','persons','service','date'].forEach(id=>{ if(document.getElementById(id)){document.getElementById(id).placeholder = t[id]; document.getElementById(id).style.direction = direction; document.getElementById(id).style.textAlign = align;} });
   const serviceSelect = document.getElementById('service'); serviceSelect.innerHTML = ''; t.services.forEach(s => { const option = document.createElement('option'); option.text = s; option.value = s; serviceSelect.add(option); });
