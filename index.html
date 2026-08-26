@@ -30,7 +30,6 @@ body{background:var(--light)}
 input,select{width:100%; padding:12px; border:1px solid #ddd; border-radius:8px; font-size:15px}
 input:focus,select:focus{outline:2px solid var(--orange); border-color:var(--orange)}
 
-/* تصميم الكروت الاحترافي */
 .packages{display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:25px; padding:50px 5%}
 .card{background:white; border-radius:15px; overflow:hidden; box-shadow:0 6px 20px rgba(0,0,0,0.1); transition:0.3s; border-top:4px solid var(--orange)}
 .card:hover{transform:translateY(-8px)}
@@ -69,6 +68,7 @@ body.en{direction:ltr; text-align:left}
     <a href="#"><span class="lang-ar">الرئيسية</span><span class="lang-en">Home</span></a>
     <a href="#services"><span class="lang-ar">خدماتنا</span><span class="lang-en">Services</span></a>
     <a href="#book"><span class="lang-ar">الحجز</span><span class="lang-en">Booking</span></a>
+    <a href="#"><span class="lang-ar">تواصل معنا</span><span class="lang-en">Contact</span></a>
   </div>
   <img src="IMAGE_LOGO" alt="أبو أويس" style="height:50px">
 </div>
@@ -113,7 +113,7 @@ body.en{direction:ltr; text-align:left}
   </form>
 </div>
 
-<!-- 3 اقسام احترافية بالصور -->
+<!-- 3 اقسام -->
 <h2 style="text-align:center; color:var(--blue); margin-bottom:20px" id="services">
   <span class="lang-ar">خدماتنا المميزة</span>
   <span class="lang-en">Our Featured Services</span>
@@ -147,7 +147,7 @@ body.en{direction:ltr; text-align:left}
 
 <div class="footer">
   <img src="IMAGE_LOGO" alt="أبو أويس" style="height:60px">
-  <p style="margin:10px 0">Abu Oways Travel & Tourism</p>
+  <p><span class="lang-ar">أبو أويس للسفر والسياحة</span><span class="lang-en">Abu Oways Travel & Tourism</span></p>
   <p>📞 966558840686+</p>
 </div>
 
@@ -166,31 +166,21 @@ const placeholders = {
 
 function updateLanguage(isEnglish){
   const lang = isEnglish? 'en' : 'ar';
-  // تغيير اتجاه النص في الحقول
   const direction = isEnglish? 'ltr' : 'rtl';
   const textAlign = isEnglish? 'left' : 'right';
 
-  document.getElementById('name').placeholder = placeholders[lang].name;
-  document.getElementById('name').style.direction = direction;
-  document.getElementById('name').style.textAlign = textAlign;
-
-  document.getElementById('phone').placeholder = placeholders[lang].phone;
-  document.getElementById('phone').style.direction = direction;
-  document.getElementById('phone').style.textAlign = textAlign;
-
-  document.getElementById('destination').placeholder = placeholders[lang].destination;
-  document.getElementById('destination').style.direction = direction;
-  document.getElementById('destination').style.textAlign = textAlign;
-
-  document.getElementById('persons').placeholder = placeholders[lang].persons;
-  document.getElementById('persons').style.direction = direction;
-  document.getElementById('persons').style.textAlign = textAlign;
+  // تحديث الفورم كامل
+  ['name','phone','destination','persons'].forEach(id=>{
+    document.getElementById(id).placeholder = placeholders[lang][id];
+    document.getElementById(id).style.direction = direction;
+    document.getElementById(id).style.textAlign = textAlign;
+  });
 
   document.getElementById('service').style.direction = direction;
   document.getElementById('service').style.textAlign = textAlign;
-
   document.getElementById('submitBtn').innerText = placeholders[lang].submit;
 
+  // تحديث قائمة الخدمات
   const serviceSelect = document.getElementById('service');
   serviceSelect.innerHTML = '';
   services[lang].forEach(s => {
@@ -209,6 +199,7 @@ function toggleLang(){
   updateLanguage(isEnglish);
 }
 
+// تحميل اول مرة
 updateLanguage(false);
 </script>
 </body>
