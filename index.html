@@ -2,990 +2,1612 @@
 <html lang="ar" dir="rtl">
 
 <head>
-    <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <meta name="description"
-          content="أبو أويس للسفر والسياحة - خدمات التأشيرات وحجوزات الطيران وتأمين الزيارات العائلية">
-
-    <title>أبو أويس للسفر والسياحة</title>
-
-    <!-- خط عربي -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap"
-          rel="stylesheet">
-
-    <style>
-
-        /* =========================
-           RESET
-        ========================= */
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: "Cairo", sans-serif;
-            background: #f4f6f9;
-            color: #17365d;
-            overflow-x: hidden;
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-
-        /* =========================
-           HEADER
-        ========================= */
-
-        header {
-            width: 100%;
-            background: #ffffff;
-            border-bottom: 1px solid #e5e5e5;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .header-container {
-            max-width: 1200px;
-            height: 105px;
-            margin: auto;
-
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-
-            padding: 0 25px;
-        }
-
-
-        /* LOGO */
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .logo img {
-            width: 75px;
-            height: 75px;
-            object-fit: contain;
-        }
-
-        .logo-text {
-            font-size: 25px;
-            font-weight: 800;
-            color: #4b1f78;
-            line-height: 1.5;
-        }
-
-
-        /* DESKTOP MENU */
-
-        nav {
-            display: flex;
-            align-items: center;
-            gap: 28px;
-        }
-
-        nav a {
-            font-size: 17px;
-            font-weight: 600;
-            color: #17365d;
-            transition: 0.3s;
-        }
-
-        nav a:hover {
-            color: #ff7900;
-        }
-
-
-        /* MENU BUTTON */
-
-        .menu-button {
-            display: none;
-
-            width: 48px;
-            height: 48px;
-
-            border: none;
-            background: transparent;
-
-            cursor: pointer;
-
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-
-            gap: 6px;
-        }
-
-        .menu-button span {
-            width: 32px;
-            height: 5px;
-            background: #17365d;
-            border-radius: 5px;
-        }
-
-
-        /* =========================
-           MOBILE MENU
-        ========================= */
-
-        .mobile-menu {
-            display: none;
-            background: white;
-            border-top: 1px solid #eee;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-        }
-
-        .mobile-menu.active {
-            display: block;
-        }
-
-        .mobile-menu a {
-            display: block;
-            padding: 15px 25px;
-            border-bottom: 1px solid #eee;
-
-            color: #17365d;
-            font-weight: 700;
-
-            transition: 0.3s;
-        }
-
-        .mobile-menu a:hover {
-            background: #f7f7f7;
-            color: #ff7900;
-        }
-
-
-        /* =========================
-           MAIN
-        ========================= */
-
-        main {
-            width: 100%;
-            max-width: 1150px;
-            margin: auto;
-
-            padding: 30px 20px 70px;
-        }
-
-
-        /* =========================
-           SERVICES
-        ========================= */
-
-        .services {
-            display: grid;
-
-            grid-template-columns: repeat(2, 1fr);
-
-            gap: 35px;
-
-            width: 100%;
-        }
-
-
-        /* =========================
-           CARD
-        ========================= */
-
-        .service-card {
-            background: #ffffff;
-
-            border-radius: 28px;
-
-            overflow: hidden;
-
-            box-shadow:
-                0 10px 30px rgba(0,0,0,0.08);
-
-            border-top: 6px solid #ff7900;
-
-            transition: 0.3s;
-
-            text-align: center;
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-
-            box-shadow:
-                0 15px 35px rgba(0,0,0,0.12);
-        }
-
-
-        /* =========================
-           IMAGE
-        ========================= */
-
-        .service-image {
-            width: 100%;
-
-            /*
-             مهم جدًا:
-             لا نستخدم height ثابت
-             ولا object-fit: cover
-             حتى لا يتم قص النص الموجود داخل الصورة.
-            */
-
-            height: auto;
-
-            display: block;
-
-            object-fit: contain;
-
-            background: #ffffff;
-        }
-
-
-        /* =========================
-           CARD CONTENT
-        ========================= */
-
-        .service-content {
-            padding: 28px 20px 32px;
-        }
-
-        .service-content h2 {
-            color: #123e70;
-
-            font-size: 28px;
-
-            font-weight: 800;
-
-            margin-bottom: 10px;
-
-            line-height: 1.5;
-        }
-
-        .service-content p {
-            color: #777;
-
-            font-size: 20px;
-
-            margin-bottom: 25px;
-
-            line-height: 1.8;
-        }
-
-
-        /* =========================
-           BUTTON
-        ========================= */
-
-        .book-button {
-            display: inline-flex;
-
-            align-items: center;
-            justify-content: center;
-
-            min-width: 200px;
-
-            padding: 15px 35px;
-
-            background: #ff7900;
-
-            color: white;
-
-            font-size: 21px;
-
-            font-weight: 800;
-
-            border-radius: 20px;
-
-            transition: 0.3s;
-
-            box-shadow:
-                0 7px 15px rgba(255,121,0,0.25);
-        }
-
-        .book-button:hover {
-            background: #e96b00;
-
-            transform: translateY(-2px);
-        }
-
-
-        /* =========================
-           WHATSAPP BUTTON
-        ========================= */
-
-        .whatsapp {
-            position: fixed;
-
-            left: 22px;
-            bottom: 22px;
-
-            width: 65px;
-            height: 65px;
-
-            background: #25D366;
-
-            border-radius: 50%;
-
-            display: flex;
-
-            align-items: center;
-            justify-content: center;
-
-            z-index: 2000;
-
-            box-shadow:
-                0 5px 20px rgba(0,0,0,0.2);
-
-            transition: 0.3s;
-        }
-
-        .whatsapp:hover {
-            transform: scale(1.08);
-        }
-
-        .whatsapp svg {
-            width: 38px;
-            height: 38px;
-            fill: white;
-        }
-
-
-        /* =========================
-           FOOTER
-        ========================= */
-
-        footer {
-            background: #17365d;
-
-            color: white;
-
-            text-align: center;
-
-            padding: 25px 15px;
-
-            font-size: 15px;
-        }
-
-
-        /* ==================================================
-           TABLET
-        ================================================== */
-
-        @media (max-width: 900px) {
-
-            .header-container {
-                height: 90px;
-                padding: 0 20px;
-            }
-
-            .logo img {
-                width: 65px;
-                height: 65px;
-            }
-
-            .logo-text {
-                font-size: 21px;
-            }
-
-            nav {
-                gap: 15px;
-            }
-
-            nav a {
-                font-size: 15px;
-            }
-
-            main {
-                padding: 25px 15px 60px;
-            }
-
-            .services {
-                gap: 25px;
-            }
-
-            .service-content h2 {
-                font-size: 24px;
-            }
-
-            .service-content p {
-                font-size: 18px;
-            }
-        }
-
-
-        /* ==================================================
-           MOBILE
-        ================================================== */
-
-        @media (max-width: 700px) {
-
-            header {
-                position: relative;
-            }
-
-            .header-container {
-                height: 150px;
-
-                padding: 15px 20px;
-
-                display: flex;
-
-                flex-direction: row;
-
-                align-items: center;
-            }
-
-
-            /* اللوجو */
-
-            .logo {
-                flex-direction: row;
-
-                align-items: center;
-
-                max-width: 75%;
-            }
-
-            .logo img {
-                width: 55px;
-                height: 55px;
-            }
-
-            .logo-text {
-                font-size: 19px;
-
-                line-height: 1.8;
-            }
-
-
-            /* إخفاء القائمة */
-
-            nav {
-                display: none;
-            }
-
-
-            /* إظهار زر القائمة */
-
-            .menu-button {
-                display: flex;
-            }
-
-
-            /* المحتوى */
-
-            main {
-                padding:
-
-                    18px
-
-                    12px
-
-                    50px;
-            }
-
-
-            /*
-             مهم:
-             عمود واحد على الهاتف
-            */
-
-            .services {
-                grid-template-columns: 1fr;
-
-                gap: 28px;
-            }
-
-
-            /* الكارت */
-
-            .service-card {
-                border-radius: 25px;
-
-                border-top-width: 5px;
-            }
-
-
-            /*
-             تصغير الصورة قليلًا
-             مع الحفاظ على النسبة الأصلية
-            */
-
-            .service-image {
-                width: 94%;
-
-                height: auto;
-
-                margin: 0 auto;
-
-                object-fit: contain;
-            }
-
-
-            /* النص */
-
-            .service-content {
-                padding:
-
-                    22px
-
-                    15px
-
-                    28px;
-            }
-
-            .service-content h2 {
-                font-size: 23px;
-
-                line-height: 1.6;
-            }
-
-            .service-content p {
-                font-size: 17px;
-
-                line-height: 1.8;
-
-                margin-bottom: 20px;
-            }
-
-
-            /* الزر */
-
-            .book-button {
-                width: 80%;
-
-                min-width: auto;
-
-                padding: 13px 20px;
-
-                font-size: 19px;
-
-                border-radius: 17px;
-            }
-
-
-            /* واتساب */
-
-            .whatsapp {
-                width: 58px;
-                height: 58px;
-
-                left: 17px;
-                bottom: 17px;
-            }
-
-            .whatsapp svg {
-                width: 33px;
-                height: 33px;
-            }
-        }
-
-
-        /* ==================================================
-           SMALL MOBILE
-        ================================================== */
-
-        @media (max-width: 400px) {
-
-            .header-container {
-                height: 135px;
-            }
-
-            .logo img {
-                width: 48px;
-                height: 48px;
-            }
-
-            .logo-text {
-                font-size: 17px;
-            }
-
-            .menu-button {
-                width: 43px;
-            }
-
-            .menu-button span {
-                width: 29px;
-                height: 4px;
-            }
-
-            .service-image {
-                width: 92%;
-            }
-
-            .service-content h2 {
-                font-size: 21px;
-            }
-
-            .service-content p {
-                font-size: 16px;
-            }
-
-            .book-button {
-                width: 85%;
-
-                font-size: 18px;
-            }
-        }
-
-    </style>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>أبو أويس للسفر والسياحة</title>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&display=swap"
+rel="stylesheet">
+
+<style>
+
+/* =========================
+   VARIABLES
+========================= */
+
+:root{
+    --blue:#0A2E6E;
+    --orange:#FF7A00;
+    --light:#F5F7FA;
+    --dark:#222;
+    --white:#fff;
+    --gray:#666;
+}
+
+/* =========================
+   RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Cairo',sans-serif;
+    scroll-behavior:smooth;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:var(--light);
+    color:var(--dark);
+    overflow-x:hidden;
+}
+
+/* =========================
+   TOP BAR
+========================= */
+
+.topbar{
+    background:var(--blue);
+    color:white;
+    padding:8px 5%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:14px;
+}
+
+.topbar a{
+    color:white;
+    text-decoration:none;
+    cursor:pointer;
+    font-weight:700;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar{
+    background:white;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:12px 5%;
+    box-shadow:0 2px 10px rgba(0,0,0,.08);
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+
+.logo{
+    height:55px;
+    width:auto;
+    max-width:180px;
+    object-fit:contain;
+    cursor:pointer;
+    display:block;
+}
+
+/* =========================
+   NAV LINKS
+========================= */
+
+.nav-links{
+    display:flex;
+    gap:25px;
+    align-items:center;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:#333;
+    font-weight:700;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:var(--orange);
+}
+
+/* =========================
+   BOOK BUTTON
+========================= */
+
+.btn-orange{
+    background:var(--orange);
+    color:white;
+    padding:12px 22px;
+    border:none;
+    border-radius:10px;
+    font-weight:bold;
+    cursor:pointer;
+    font-size:16px;
+    text-decoration:none;
+    display:inline-block;
+    transition:.3s;
+}
+
+.btn-orange:hover{
+    transform:translateY(-2px);
+    box-shadow:0 5px 15px rgba(255,122,0,.3);
+}
+
+/* =========================
+   MOBILE MENU BUTTON
+========================= */
+
+.menu-btn{
+    display:none;
+    background:none;
+    border:none;
+    font-size:30px;
+    color:var(--blue);
+    cursor:pointer;
+}
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+.mobile-menu{
+    display:none;
+    position:absolute;
+    top:100%;
+    right:0;
+    left:0;
+    background:white;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+    padding:15px 20px;
+}
+
+.mobile-menu.active{
+    display:block;
+}
+
+.mobile-menu a{
+    display:block;
+    padding:13px 10px;
+    text-decoration:none;
+    color:#333;
+    font-weight:700;
+    border-bottom:1px solid #eee;
+}
+
+.mobile-menu a:hover{
+    color:var(--orange);
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    background:
+    linear-gradient(
+        rgba(10,46,110,.78),
+        rgba(10,46,110,.78)
+    ),
+    url("https://images.unsplash.com/photo-1587432967340-d1e3e4b1392d?q=1200")
+    center/cover;
+
+    color:white;
+    padding:80px 5%;
+
+    display:flex;
+    gap:50px;
+    flex-wrap:wrap;
+    align-items:center;
+
+    min-height:520px;
+}
+
+.hero-text{
+    flex:1;
+    min-width:280px;
+}
+
+.hero-text h1{
+    font-size:44px;
+    font-weight:900;
+    line-height:1.5;
+}
+
+.hero-text h1 span{
+    color:var(--orange);
+}
+
+.hero-text p{
+    font-size:18px;
+    margin-top:15px;
+}
+
+.features-text{
+    flex:1;
+    min-width:280px;
+    color:white;
+}
+
+.feature-item{
+    margin-bottom:22px;
+}
+
+.feature-item b{
+    color:var(--orange);
+    font-size:20px;
+}
+
+/* =========================
+   BOOKING FORM
+========================= */
+
+.form-box{
+    background:white;
+    padding:30px;
+    border-radius:15px;
+
+    width:90%;
+    max-width:1000px;
+
+    margin:-55px auto 50px;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.12);
+
+    position:relative;
+    z-index:5;
+}
+
+.form-box h2{
+    text-align:center;
+    margin-bottom:20px;
+    color:var(--blue);
+}
+
+.form-grid{
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(200px,1fr));
+
+    gap:15px;
+}
+
+input,
+select{
+    width:100%;
+    padding:13px;
+
+    border:1px solid #ddd;
+    border-radius:8px;
+
+    font-size:15px;
+    background:white;
+}
+
+input:focus,
+select:focus{
+    outline:2px solid var(--orange);
+    border-color:var(--orange);
+}
+
+/* =========================
+   SERVICES
+========================= */
+
+.services-title{
+    text-align:center;
+    color:var(--blue);
+    margin-bottom:25px;
+    padding:0 20px;
+}
+
+.packages{
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(280px,1fr));
+
+    gap:25px;
+
+    padding:20px 5% 60px;
+}
+
+.card{
+    background:white;
+    border-radius:15px;
+    overflow:hidden;
+
+    box-shadow:
+    0 6px 20px rgba(0,0,0,.1);
+
+    transition:.3s;
+
+    border-top:4px solid var(--orange);
+}
+
+.card:hover{
+    transform:translateY(-7px);
+}
+
+/* =========================
+   SERVICE IMAGES
+   تم تعديلها حتى يظهر
+   النص داخل الصورة بالكامل
+========================= */
+
+.card img{
+    width:100%;
+    height:180px;
+    object-fit:contain;
+    object-position:center;
+    display:block;
+    background:#fff;
+}
+
+/* =========================
+   CARD BODY
+========================= */
+
+.card-body{
+    padding:22px;
+    text-align:center;
+}
+
+.card-body h3{
+    color:var(--blue);
+    font-size:21px;
+    margin-bottom:8px;
+}
+
+.card-body p{
+    color:var(--gray);
+    margin-bottom:17px;
+    min-height:48px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+.footer{
+    background:var(--blue);
+    color:white;
+    text-align:center;
+    padding:45px 20px;
+}
+
+.footer-logo{
+    height:65px;
+    max-width:200px;
+    width:auto;
+    object-fit:contain;
+    background:white;
+    padding:8px;
+    border-radius:10px;
+    margin-bottom:15px;
+}
+
+.footer p{
+    margin:6px 0;
+}
+
+/* =========================
+   WHATSAPP
+========================= */
+
+.whatsapp{
+    position:fixed;
+
+    bottom:20px;
+    left:20px;
+
+    background:#25D366;
+
+    width:58px;
+    height:58px;
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:white;
+
+    font-size:30px;
+
+    text-decoration:none;
+
+    box-shadow:
+    0 5px 15px rgba(0,0,0,.25);
+
+    z-index:2000;
+
+    transition:.3s;
+}
+
+.whatsapp:hover{
+    transform:scale(1.1);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:768px){
+
+    .topbar{
+        padding:8px 15px;
+        font-size:12px;
+    }
+
+    .navbar{
+        padding:10px 15px;
+    }
+
+    .logo{
+        height:45px;
+        max-width:150px;
+    }
+
+    .navbar > .btn-orange{
+        display:none;
+    }
+
+    .nav-links{
+        display:none;
+    }
+
+    .menu-btn{
+        display:block;
+        order:1;
+    }
+
+    .logo-link{
+        order:2;
+    }
+
+    .hero{
+        padding:55px 20px;
+        text-align:center;
+        min-height:auto;
+        gap:35px;
+    }
+
+    .hero-text,
+    .features-text{
+        min-width:100%;
+    }
+
+    .hero-text h1{
+        font-size:31px;
+        line-height:1.5;
+    }
+
+    .hero-text p{
+        font-size:15px;
+    }
+
+    .feature-item{
+        margin-bottom:18px;
+    }
+
+    .feature-item b{
+        font-size:17px;
+    }
+
+    .form-box{
+        width:94%;
+        padding:20px 15px;
+        margin:-30px auto 35px;
+    }
+
+    .form-box h2{
+        font-size:20px;
+    }
+
+    .form-grid{
+        grid-template-columns:1fr;
+    }
+
+    input,
+    select{
+        font-size:14px;
+        padding:12px;
+    }
+
+    .packages{
+        grid-template-columns:1fr;
+        padding:15px 15px 45px;
+        gap:20px;
+    }
+
+    /* =========================
+       صور الموبايل
+       أصغر + بدون قص
+    ========================= */
+
+    .card img{
+        width:100%;
+        height:150px;
+        object-fit:contain;
+        object-position:center;
+        display:block;
+        background:#fff;
+    }
+
+    .card-body{
+        padding:18px;
+    }
+
+    .card-body h3{
+        font-size:19px;
+    }
+
+    .card-body p{
+        font-size:14px;
+    }
+
+    .services-title{
+        font-size:23px;
+    }
+
+    .footer{
+        padding:35px 15px;
+    }
+
+    .footer-logo{
+        height:55px;
+        max-width:170px;
+    }
+
+    .whatsapp{
+        width:52px;
+        height:52px;
+        font-size:27px;
+        bottom:15px;
+        left:15px;
+    }
+}
+
+/* =========================
+   VERY SMALL PHONES
+========================= */
+
+@media(max-width:400px){
+
+    .hero-text h1{
+        font-size:27px;
+    }
+
+    .hero{
+        padding:45px 15px;
+    }
+
+    .logo{
+        height:40px;
+        max-width:125px;
+    }
+
+    .topbar{
+        font-size:11px;
+    }
+
+    .card img{
+        height:135px;
+    }
+
+    .card-body{
+        padding:16px;
+    }
+
+    .card-body h3{
+        font-size:18px;
+    }
+
+}
+
+/* =========================
+   EXTRA SMALL SCREENS
+========================= */
+
+@media(max-width:350px){
+
+    .card img{
+        height:125px;
+    }
+
+    .packages{
+        padding-left:10px;
+        padding-right:10px;
+    }
+
+}
+
+</style>
 </head>
-
 
 <body>
 
+<!-- =========================
+     TOP BAR
+========================= -->
 
-<!-- ==================================================
-     HEADER
-================================================== -->
+<div class="topbar">
 
-<header>
+    <div>
+        📞 <span dir="ltr">+966 558 840 686</span>
+    </div>
 
-    <div class="header-container">
+    <div>
+        <a onclick="toggleLang()" id="langBtn">
+            EN 🌐
+        </a>
+    </div>
+
+</div>
 
 
-        <!-- LOGO -->
+<!-- =========================
+     NAVBAR
+========================= -->
 
-        <a href="index.html" class="logo">
+<div class="navbar">
 
-            <!--
-                غيّر logo.png إلى اسم صورة اللوجو عندك
-            -->
+    <!-- MOBILE MENU BUTTON -->
 
-            <img
-                src="logo.png"
-                alt="أبو أويس للسفر والسياحة"
-            >
+    <button
+        class="menu-btn"
+        onclick="toggleMenu()"
+        aria-label="القائمة">
+        ☰
+    </button>
 
-            <span class="logo-text">
-                أبو أويس للسفر<br>
-                والسياحة
-            </span>
 
+    <!-- LOGO -->
+
+    <a
+        href="#home"
+        class="logo-link">
+
+        <img
+            src="logo-01.jpg"
+            alt="أبو أويس للسفر والسياحة"
+            class="logo">
+
+    </a>
+
+
+    <!-- DESKTOP NAV -->
+
+    <div class="nav-links">
+
+        <a href="#home" id="nav1">
+            الرئيسية
         </a>
 
+        <a href="#services" id="nav2">
+            خدماتنا
+        </a>
 
-        <!-- DESKTOP NAV -->
+        <a href="#book" id="nav3">
+            الحجز
+        </a>
 
-        <nav>
+        <a href="#about" id="nav4">
+            من نحن
+        </a>
 
-            <a href="index.html">
-                الرئيسية
-            </a>
-
-            <a href="#services">
-                خدماتنا
-            </a>
-
-            <a href="#contact">
-                تواصل معنا
-            </a>
-
-        </nav>
-
-
-        <!-- MOBILE MENU BUTTON -->
-
-        <button
-            class="menu-button"
-            onclick="toggleMenu()"
-            aria-label="فتح القائمة"
-        >
-
-            <span></span>
-            <span></span>
-            <span></span>
-
-        </button>
+        <a href="#contact" id="nav5">
+            تواصل معنا
+        </a>
 
     </div>
+
+
+    <!-- BOOK BUTTON -->
+
+    <a
+        href="#book"
+        class="btn-orange">
+        احجز الآن 📅
+    </a>
 
 
     <!-- MOBILE MENU -->
 
     <div
         class="mobile-menu"
-        id="mobileMenu"
-    >
+        id="mobileMenu">
 
-        <a href="index.html"
-           onclick="closeMenu()">
+        <a href="#home" onclick="closeMenu()" id="mnav1">
             الرئيسية
         </a>
 
-        <a href="#services"
-           onclick="closeMenu()">
+        <a href="#services" onclick="closeMenu()" id="mnav2">
             خدماتنا
         </a>
 
-        <a href="#contact"
-           onclick="closeMenu()">
+        <a href="#book" onclick="closeMenu()" id="mnav3">
+            الحجز
+        </a>
+
+        <a href="#about" onclick="closeMenu()" id="mnav4">
+            من نحن
+        </a>
+
+        <a href="#contact" onclick="closeMenu()" id="mnav5">
             تواصل معنا
         </a>
 
     </div>
 
-</header>
+</div>
 
 
+<!-- =========================
+     HERO
+========================= -->
 
-<!-- ==================================================
-     MAIN
-================================================== -->
+<section
+    class="hero"
+    id="home">
 
-<main id="services">
+    <div class="hero-text">
 
-    <section class="services">
+        <h1 id="heroTitle">
+            رحلتك إلى
+            <br>
+            بيت الله
+            <br>
+            <span>
+                تبدأ من هنا
+            </span>
+        </h1>
 
+        <p id="heroDesc">
+            جميع خدمات السفر والسياحة في مكان واحد
+        </p>
 
-        <!-- ==========================================
-             SERVICE 1
-        =========================================== -->
+        <a
+            href="#book"
+            class="btn-orange"
+            id="heroBtn"
+            style="margin-top:18px">
 
-        <article class="service-card">
+            احجز الآن
 
-            <!--
-                اسم الصورة:
-                umrah-visa.jpg
+        </a>
 
-                ضع الصورة بنفس اسم الملف
-                داخل مجلد GitHub
-            -->
+    </div>
 
-            <img
-                class="service-image"
-                src="umrah-visa.jpg"
-                alt="تأشيرات العمرة الإلكترونية"
-                loading="lazy"
-            >
 
+    <div class="features-text">
 
-            <div class="service-content">
+        <div class="feature-item">
 
-                <h2>
-                    تأشيرات العمرة الإلكترونية
-                </h2>
+            <b id="f1">
+                أسعار تنافسية
+            </b>
 
-                <p>
-                    إصدار سريع خلال 24 ساعة
-                </p>
+            <br>
 
-                <a
-                    class="book-button"
-                    href="booking.html"
-                >
-                    احجز الآن
-                </a>
+            <span id="f1d">
+                أفضل الأسعار والعروض
+            </span>
 
-            </div>
+        </div>
 
-        </article>
 
+        <div class="feature-item">
 
+            <b id="f2">
+                خدمة عملاء 24/7
+            </b>
 
-        <!-- ==========================================
-             SERVICE 2
-        =========================================== -->
+            <br>
 
-        <article class="service-card">
+            <span id="f2d">
+                نحن معك في كل خطوة
+            </span>
 
-            <!--
-                اسم الصورة:
-                family-insurance.jpg
-            -->
+        </div>
 
-            <img
-                class="service-image"
-                src="family-insurance.jpg"
-                alt="تأمين الزيارات العائلية"
-                loading="lazy"
-            >
 
+        <div class="feature-item">
 
-            <div class="service-content">
+            <b id="f3">
+                حجوزات آمنة
+            </b>
 
-                <h2>
-                    تأمين الزيارات العائلية
-                </h2>
+            <br>
 
-                <p>
-                    تأمين موثوق لعائلتك أثناء الزيارة
-                </p>
+            <span id="f3d">
+                حماية ببياناتك 100%
+            </span>
 
-                <a
-                    class="book-button"
-                    href="booking.html"
-                >
-                    احجز الآن
-                </a>
+        </div>
 
-            </div>
+    </div>
 
-        </article>
+</section>
 
 
+<!-- =========================
+     BOOKING FORM
+========================= -->
 
-        <!-- ==========================================
-             SERVICE 3
-        =========================================== -->
+<section
+    class="form-box"
+    id="book">
 
-        <article class="service-card">
+    <h2 id="formTitle">
+        نموذج الحجز السريع
+    </h2>
 
-            <img
-                class="service-image"
-                src="flight-booking.jpg"
-                alt="حجوزات الطيران"
-                loading="lazy"
-            >
 
+    <form
+        action="https://formsubmit.co/Rhmtabwmr03@gmail.com"
+        method="POST">
 
-            <div class="service-content">
+        <input
+            type="hidden"
+            name="_subject"
+            value="New Booking - Abu Oways">
 
-                <h2>
-                    حجوزات الطيران
-                </h2>
+        <input
+            type="hidden"
+            name="_captcha"
+            value="false">
 
-                <p>
-                    احجز رحلتك بسهولة وأمان
-                </p>
 
-                <a
-                    class="book-button"
-                    href="booking.html"
-                >
-                    احجز الآن
-                </a>
+        <div class="form-grid">
 
-            </div>
+            <input
+                type="text"
+                id="name"
+                name="Full Name"
+                placeholder="الاسم الكامل"
+                required>
 
-        </article>
 
+            <input
+                type="tel"
+                id="phone"
+                name="WhatsApp"
+                placeholder="رقم الواتساب"
+                required>
 
 
-        <!-- ==========================================
-             SERVICE 4
-        =========================================== -->
+            <select
+                id="service"
+                name="Service"
+                required>
+            </select>
 
-        <article class="service-card">
 
-            <img
-                class="service-image"
-                src="travel-tourism.jpg"
-                alt="السفر والسياحة"
-                loading="lazy"
-            >
+            <input
+                type="text"
+                id="destination"
+                name="Destination"
+                placeholder="الوجهة">
 
 
-            <div class="service-content">
+            <input
+                type="date"
+                name="Travel Date"
+                id="date">
 
-                <h2>
-                    السفر والسياحة
-                </h2>
 
-                <p>
-                    خدمات سفر وسياحة متكاملة
-                </p>
+            <input
+                type="number"
+                id="persons"
+                name="Persons"
+                placeholder="عدد الأشخاص"
+                min="1">
 
-                <a
-                    class="book-button"
-                    href="booking.html"
-                >
-                    احجز الآن
-                </a>
+        </div>
 
-            </div>
 
-        </article>
+        <button
+            type="submit"
+            class="btn-orange"
+            style="width:100%; margin-top:15px; padding:15px"
+            id="submitBtn">
 
+            إرسال الطلب
 
-    </section>
+        </button>
 
-</main>
+    </form>
 
+</section>
 
 
-<!-- ==================================================
-     WHATSAPP
-================================================== -->
+<!-- =========================
+     SERVICES
+========================= -->
 
-<a
-    class="whatsapp"
-    href="https://wa.me/218000000000"
-    target="_blank"
-    aria-label="تواصل معنا عبر واتساب"
->
+<h2
+    class="services-title"
+    id="servicesTitle">
 
-    <svg
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
-    >
+    خدماتنا المميزة
 
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.075-.149-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51-.173-.008-.372-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982 1-3.648-.235-.374a9.86 9.86 0 01-1.511-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.002 5.45-4.437 9.884-9.886 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.89c0 2.096.547 4.142 1.588 5.946L.057 24l6.304-1.654a11.89 11.89 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.89a11.821 11.821 0 00-3.478-8.416"/>
+</h2>
 
-    </svg>
 
-</a>
+<div
+    class="packages"
+    id="services">
 
 
+    <!-- FLIGHTS -->
 
-<!-- ==================================================
+    <div class="card">
+
+        <img
+            src="plane.jpg-01%20(1).png"
+            alt="حجوزات الطيران">
+
+        <div class="card-body">
+
+            <h3 id="s1">
+                حجوزات الطيران
+            </h3>
+
+            <p id="s1d">
+                أفضل الأسعار لجميع الوجهات العالمية
+            </p>
+
+            <a
+                href="#book"
+                class="btn-orange"
+                id="s1b">
+
+                احجز الآن
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- UMRAH -->
+
+    <div class="card">
+
+        <img
+            src="umrah.jpg-01.png"
+            alt="تأشيرات العمرة الإلكترونية">
+
+        <div class="card-body">
+
+            <h3 id="s2">
+                تأشيرات العمرة الإلكترونية
+            </h3>
+
+            <p id="s2d">
+                إصدار سريع خلال 24 ساعة
+            </p>
+
+            <a
+                href="#book"
+                class="btn-orange"
+                id="s2b">
+
+                احجز الآن
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- INSURANCE -->
+
+    <div class="card">
+
+        <img
+            src="insurance%20-01.png"
+            alt="تأمين الزيارات العائلية">
+
+        <div class="card-body">
+
+            <h3 id="s3">
+                تأمين الزيارات العائلية
+            </h3>
+
+            <p id="s3d">
+                راحة بالك... عائلتك في أمان
+            </p>
+
+            <a
+                href="#book"
+                class="btn-orange"
+                id="s3b">
+
+                احجز الآن
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section
+    id="about"
+    style="
+    background:white;
+    padding:50px 20px;
+    text-align:center;
+    ">
+
+    <h2
+        style="color:var(--blue); margin-bottom:15px"
+        id="aboutTitle">
+
+        من نحن
+
+    </h2>
+
+    <p
+        style="
+        max-width:800px;
+        margin:auto;
+        color:#666;
+        line-height:2;
+        "
+        id="aboutText">
+
+        أبو أويس للسفر والسياحة نقدم خدمات السفر والحجوزات
+        وتأشيرات العمرة وتأمين الزيارات العائلية
+        بطريقة سهلة وآمنة.
+
+    </p>
+
+</section>
+
+
+<!-- =========================
      FOOTER
-================================================== -->
+========================= -->
 
-<footer id="contact">
+<footer
+    class="footer"
+    id="contact">
+
+    <img
+        src="logo-01.jpg"
+        alt="أبو أويس للسفر والسياحة"
+        class="footer-logo">
+
+    <p id="footer1">
+        أبو أويس للسفر والسياحة
+    </p>
+
+    <p id="footer2">
+        جميع الحقوق محفوظة © 2026
+    </p>
 
     <p>
-        © 2026 أبو أويس للسفر والسياحة - جميع الحقوق محفوظة
+        📞
+        <span dir="ltr">
+            +966 558 840 686
+        </span>
     </p>
 
 </footer>
 
 
+<!-- =========================
+     WHATSAPP
+========================= -->
 
-<!-- ==================================================
+<a
+    href="https://wa.me/966558840686"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="whatsapp"
+    aria-label="واتساب">
+
+    💬
+
+</a>
+
+
+<!-- =========================
      JAVASCRIPT
-================================================== -->
+========================= -->
 
 <script>
 
-    function toggleMenu() {
+/* =========================
+   MOBILE MENU
+========================= */
 
-        const menu =
-            document.getElementById("mobileMenu");
+function toggleMenu(){
 
-        menu.classList.toggle("active");
+    const menu =
+        document.getElementById("mobileMenu");
 
-    }
+    menu.classList.toggle("active");
+
+}
 
 
-    function closeMenu() {
+function closeMenu(){
 
-        const menu =
-            document.getElementById("mobileMenu");
+    const menu =
+        document.getElementById("mobileMenu");
+
+    menu.classList.remove("active");
+
+}
+
+
+/* =========================
+   LANGUAGE
+========================= */
+
+let currentLang = "ar";
+
+
+const dict = {
+
+ar:{
+
+title:"أبو أويس للسفر والسياحة",
+
+langBtn:"EN 🌐",
+
+nav1:"الرئيسية",
+nav2:"خدماتنا",
+nav3:"الحجز",
+nav4:"من نحن",
+nav5:"تواصل معنا",
+
+heroTitle:
+'رحلتك إلى <br>بيت الله <br><span>تبدأ من هنا</span>',
+
+heroDesc:
+"جميع خدمات السفر والسياحة في مكان واحد",
+
+heroBtn:
+"احجز الآن",
+
+f1:
+"أسعار تنافسية",
+
+f1d:
+"أفضل الأسعار والعروض",
+
+f2:
+"خدمة عملاء 24/7",
+
+f2d:
+"نحن معك في كل خطوة",
+
+f3:
+"حجوزات آمنة",
+
+f3d:
+"حماية ببياناتك 100%",
+
+formTitle:
+"نموذج الحجز السريع",
+
+name:
+"الاسم الكامل",
+
+phone:
+"رقم الواتساب",
+
+destination:
+"الوجهة",
+
+persons:
+"عدد الأشخاص",
+
+submit:
+"إرسال الطلب",
+
+date:
+"تاريخ السفر",
+
+services:[
+"اختر الخدمة",
+"حجوزات الطيران",
+"حجوزات البواخر",
+"تأشيرات العمرة الإلكترونية",
+"تأمين الزيارات",
+"تجديد الزيارات العائلية",
+"استخراج الرخصة الدولية"
+],
+
+servicesTitle:
+"خدماتنا المميزة",
+
+s1:
+"حجوزات الطيران",
+
+s1d:
+"أفضل الأسعار لجميع الوجهات العالمية",
+
+s1b:
+"احجز الآن",
+
+s2:
+"تأشيرات العمرة الإلكترونية",
+
+s2d:
+"إصدار سريع خلال 24 ساعة",
+
+s2b:
+"احجز الآن",
+
+s3:
+"تأمين الزيارات العائلية",
+
+s3d:
+"راحة بالك... عائلتك في أمان",
+
+s3b:
+"احجز الآن",
+
+aboutTitle:
+"من نحن",
+
+aboutText:
+"أبو أويس للسفر والسياحة نقدم خدمات السفر والحجوزات وتأشيرات العمرة وتأمين الزيارات العائلية بطريقة سهلة وآمنة.",
+
+footer1:
+"أبو أويس للسفر والسياحة",
+
+footer2:
+"جميع الحقوق محفوظة © 2026"
+
+},
+
+
+en:{
+
+title:
+"Abu Oways Travel",
+
+langBtn:
+"العربية 🌐",
+
+nav1:
+"Home",
+
+nav2:
+"Services",
+
+nav3:
+"Booking",
+
+nav4:
+"About",
+
+nav5:
+"Contact",
+
+heroTitle:
+"Your Journey to <br>Allah's House <br><span>Starts Here</span>",
+
+heroDesc:
+"All travel & tourism services in one place",
+
+heroBtn:
+"Book Now",
+
+f1:
+"Competitive Prices",
+
+f1d:
+"Best prices & offers",
+
+f2:
+"24/7 Support",
+
+f2d:
+"We are with you every step",
+
+f3:
+"Secure Booking",
+
+f3d:
+"100% data protection",
+
+formTitle:
+"Quick Booking Form",
+
+name:
+"Full Name",
+
+phone:
+"WhatsApp Number",
+
+destination:
+"Destination",
+
+persons:
+"Number of Persons",
+
+submit:
+"Send Request",
+
+date:
+"Travel Date",
+
+services:[
+"Select Service",
+"Flight Booking",
+"Ferry Booking",
+"E-Umrah Visa",
+"Visit Insurance",
+"Family Visit Renewal",
+"International Driving License"
+],
+
+servicesTitle:
+"Our Featured Services",
+
+s1:
+"Flight Booking",
+
+s1d:
+"Best prices for all global destinations",
+
+s1b:
+"Book Now",
+
+s2:
+"E-Umrah Visa",
+
+s2d:
+"Fast issuance within 24 hours",
+
+s2b:
+"Book Now",
+
+s3:
+"Family Visit Insurance",
+
+s3d:
+"Comprehensive coverage for your family",
+
+s3b:
+"Book Now",
+
+aboutTitle:
+"About Us",
+
+aboutText:
+"Abu Oways Travel & Tourism provides travel bookings, Umrah visas and family visit insurance services in an easy and secure way.",
+
+footer1:
+"Abu Oways Travel & Tourism",
+
+footer2:
+"All Rights Reserved © 2026"
+
+}
+
+};
+
+
+/* =========================
+   SET LANGUAGE
+========================= */
+
+function setLang(lang){
+
+    const t = dict[lang];
+
+    document.documentElement.lang = lang;
+
+    document.documentElement.dir =
+        lang === "ar" ? "rtl" : "ltr";
+
+    document.title = t.title;
+
+
+    /* TEXT */
+
+    const ids = [
+        "langBtn",
+        "nav1",
+        "nav2",
+        "nav3",
+        "nav4",
+        "nav5",
+
+        "mnav1",
+        "mnav2",
+        "mnav3",
+        "mnav4",
+        "mnav5",
+
+        "heroTitle",
+        "heroDesc",
+        "heroBtn",
+
+        "f1",
+        "f1d",
+        "f2",
+        "f2d",
+        "f3",
+        "f3d",
+
+        "formTitle",
+        "submitBtn",
+
+        "servicesTitle",
+
+        "s1",
+        "s1d",
+        "s1b",
+
+        "s2",
+        "s2d",
+        "s2b",
+
+        "s3",
+        "s3d",
+        "s3b",
+
+        "aboutTitle",
+        "aboutText",
+
+        "footer1",
+        "footer2"
+    ];
+
+
+    ids.forEach(id=>{
+
+        const element =
+            document.getElementById(id);
+
+        if(element && t[id]){
+
+            element.innerHTML = t[id];
+
+        }
+
+    });
+
+
+    /* INPUT PLACEHOLDERS */
+
+    const direction =
+        lang === "ar" ? "rtl" : "ltr";
+
+    const align =
+        lang === "ar" ? "right" : "left";
+
+
+    document.getElementById("name").placeholder =
+        t.name;
+
+    document.getElementById("phone").placeholder =
+        t.phone;
+
+    document.getElementById("destination").placeholder =
+        t.destination;
+
+    document.getElementById("persons").placeholder =
+        t.persons;
+
+
+    ["name","phone","destination","persons","service","date"]
+    .forEach(id=>{
+
+        const element =
+            document.getElementById(id);
+
+        element.style.direction =
+            direction;
+
+        element.style.textAlign =
+            align;
+
+    });
+
+
+    /* SERVICES */
+
+    const serviceSelect =
+        document.getElementById("service");
+
+    serviceSelect.innerHTML = "";
+
+
+    t.services.forEach((service,index)=>{
+
+        const option =
+            document.createElement("option");
+
+        option.textContent = service;
+
+        option.value = service;
+
+        if(index === 0){
+            option.disabled = true;
+            option.selected = true;
+        }
+
+        serviceSelect.appendChild(option);
+
+    });
+
+}
+
+
+/* =========================
+   LANGUAGE BUTTON
+========================= */
+
+function toggleLang(){
+
+    currentLang =
+        currentLang === "ar"
+        ? "en"
+        : "ar";
+
+    setLang(currentLang);
+
+}
+
+
+/* =========================
+   START ARABIC
+========================= */
+
+setLang("ar");
+
+
+/* =========================
+   CLOSE MENU WHEN CLICK OUTSIDE
+========================= */
+
+document.addEventListener("click",function(event){
+
+    const menu =
+        document.getElementById("mobileMenu");
+
+    const button =
+        document.querySelector(".menu-btn");
+
+    if(
+        menu.classList.contains("active") &&
+        !menu.contains(event.target) &&
+        !button.contains(event.target)
+    ){
 
         menu.classList.remove("active");
 
     }
 
-</script>
+});
 
+</script>
 
 </body>
 </html>
