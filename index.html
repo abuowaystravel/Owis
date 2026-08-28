@@ -33,22 +33,24 @@ input:focus,select:focus{outline:2px solid var(--orange); border-color:var(--ora
 @keyframes fadeIn{from{opacity:0; transform:translateY(-10px)} to{opacity:1; transform:translateY(0)}}
 .packages{display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:25px; padding:50px 5%}
 
-/* ===== تعديل الكروت والصور - تملأ المربع ===== */
+/* ===== تعديل الكروت والصور - النص كامل ===== */
 .card{background:white; border-radius:15px; overflow:hidden; box-shadow:0 6px 20px rgba(0,0,0,0.1); transition:0.3s; border-top:4px solid var(--orange); display:flex; flex-direction:column}
 .card:hover{transform:translateY(-8px)}
 .card-img-wrapper{
-  height:240px; /* ارتفاع ثابت لكل الكروت */
+  height:240px; /* ارتفاع ثابت */
   width:100%;
-  overflow:hidden; /* عشان لو الصورة كبيرة */
+  background:#ffffff; /* خلفية بيضا عشان الفراغات */
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:10px; /* مسافة بسيطة */
 }
 .card img{
   width:100%;
   height:100%;
-  object-fit:cover; /* تملأ المربع */
-  object-position:center; /* المركز هو اللي يبان */
-  transition:0.4s;
+  object-fit:contain; /* الصورة كاملة */
+  object-position:center; /* في النص */
 }
-.card:hover img{transform:scale(1.05)} /* تكبير خفيف عند الهوفر */
 .card-body{padding:20px; text-align:center; flex:1; display:flex; flex-direction:column; justify-content:space-between}
 .card-body h3{color:var(--blue); font-size:22px; margin-bottom:8px}
 .card-body p{color:#666; margin-bottom:15px; flex:1}
