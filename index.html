@@ -14,7 +14,8 @@ body{background:var(--light)}
 .navbar{background:white; display:flex; justify-content:space-between; align-items:center; padding:12px 5%; box-shadow:0 2px 8px rgba(0,0,0,0.08); position:sticky; top:0; z-index:10}
 .nav-links{display:flex; gap:20px; flex-wrap:wrap}
 .nav-links a{text-decoration:none; color:#333; font-weight:700}
-.btn-orange{background:var(--orange); color:white; padding:12px 22px; border:none; border-radius:10px; font-weight:bold; cursor:pointer; font-size:16px; text-decoration:none; display:inline-block}
+.btn-orange{background:var(--orange); color:white; padding:12px 22px; border:none; border-radius:10px; font-weight:bold; cursor:pointer; font-size:16px; text-decoration:none; display:inline-block; transition:0.3s}
+.btn-orange:hover{background:#e66a00}
 .btn-orange:disabled{opacity:0.6; cursor:not-allowed}
 .hero{background:linear-gradient(rgba(10,46,110,0.75), rgba(10,46,110,0.75)), url('https://images.unsplash.com/photo-1587432967340-d1e3e4b1392d?q=1200') center/cover; color:white; padding:70px 5%; display:flex; gap:40px; flex-wrap:wrap; align-items:center}
 .hero-text{flex:1; min-width:300px}
@@ -30,16 +31,34 @@ input:focus,select:focus{outline:2px solid var(--orange); border-color:var(--ora
 .success-msg{display:none; background:transparent; color:var(--green); border:2px solid var(--green); padding:20px; border-radius:10px; text-align:center; margin-top:15px; font-size:18px; font-weight:bold; animation:fadeIn 0.5s}
 .success-msg.show{display:block}
 @keyframes fadeIn{from{opacity:0; transform:translateY(-10px)} to{opacity:1; transform:translateY(0)}}
-.packages{display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:25px; padding:50px 5%}
-.card{background:white; border-radius:15px; overflow:hidden; box-shadow:0 6px 20px rgba(0,0,0,0.1); transition:0.3s; border-top:4px solid var(--orange)}
+.packages{display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:25px; padding:50px 5%}
+
+/* ===== تعديل الكروت والصور ===== */
+.card{background:white; border-radius:15px; overflow:hidden; box-shadow:0 6px 20px rgba(0,0,0,0.1); transition:0.3s; border-top:4px solid var(--orange); display:flex; flex-direction:column}
 .card:hover{transform:translateY(-8px)}
-.card img{width:100%; height:250px; object-fit:cover; background:#f8f9fa}
-.card-body{padding:20px; text-align:center}
+.card-img-wrapper{
+  background:#fff;
+  padding:20px;
+  height:260px; /* ارتفاع موحد لكل الصور */
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.card img{
+  width:100%;
+  height:100%;
+  object-fit:contain; /* الصورة كاملة بدون قص */
+}
+.card-body{padding:20px; text-align:center; flex:1; display:flex; flex-direction:column; justify-content:space-between}
 .card-body h3{color:var(--blue); font-size:22px; margin-bottom:8px}
-.card-body p{color:#666; margin-bottom:15px}
+.card-body p{color:#666; margin-bottom:15px; flex:1}
 .footer{background:var(--blue); color:white; text-align:center; padding:40px 20px}
-.whatsapp{position:fixed; bottom:20px; left:20px; background:#25D366; width:55px; height:55px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:white; font-size:30px; text-decoration:none; box-shadow:0 4px 10px rgba(0,0,0,0.2)}
-@media(max-width:768px){.nav-links{display:none}.hero{padding:40px 20px; text-align:center}.hero-text h1{font-size:32px} }
+.whatsapp{position:fixed; bottom:20px; left:20px; background:#25D366; width:55px; height:55px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:white; font-size:30px; text-decoration:none; box-shadow:0 4px 10px rgba(0,0,0,0.2); z-index:99}
+@media(max-width:768px){
+ .nav-links{display:none}
+ .hero{padding:40px 20px; text-align:center}
+ .hero-text h1{font-size:32px}
+ .card-img-wrapper{height:220px}
 </style>
 </head>
 <body>
@@ -95,28 +114,40 @@ input:focus,select:focus{outline:2px solid var(--orange); border-color:var(--ora
 <div class="packages">
   <!-- 1. حجوزات الطيران -->
   <div class="card">
-    <img src="https://raw.githubusercontent.com/abuowaystravel/Owis/main/plane.jpg-01%20%281%29.png" alt="حجوزات الطيران">
+    <div class="card-img-wrapper">
+      <img src="https://raw.githubusercontent.com/abuowaystravel/Owis/main/plane.jpg-01%20%281%29.png" alt="حجوزات الطيران">
+    </div>
     <div class="card-body">
-      <h3 id="s1">حجوزات الطيران</h3>
-      <p id="s1d">أفضل الأسعار لجميع الوجهات العالمية</p>
+      <div>
+        <h3 id="s1">حجوزات الطيران</h3>
+        <p id="s1d">أفضل الأسعار لجميع الوجهات العالمية</p>
+      </div>
       <a href="#book" class="btn-orange" id="s1b">احجز الآن</a>
     </div>
   </div>
   <!-- 2. تأشيرات العمرة -->
   <div class="card">
-    <img src="https://raw.githubusercontent.com/abuowaystravel/Owis/main/umrah.jpg-01.png" alt="تأشيرات العمرة">
+    <div class="card-img-wrapper">
+      <img src="https://raw.githubusercontent.com/abuowaystravel/Owis/main/umrah.jpg-01.png" alt="تأشيرات العمرة">
+    </div>
     <div class="card-body">
-      <h3 id="s2">تأشيرات العمرة الإلكترونية</h3>
-      <p id="s2d">اصدار سريع خلال 24 ساعة</p>
+      <div>
+        <h3 id="s2">تأشيرات العمرة الإلكترونية</h3>
+        <p id="s2d">اصدار سريع خلال 24 ساعة</p>
+      </div>
       <a href="#book" class="btn-orange" id="s2b">احجز الآن</a>
     </div>
   </div>
   <!-- 3. تأمين الزيارات -->
   <div class="card">
-    <img src="https://raw.githubusercontent.com/abuowaystravel/Owis/main/insurance%20-01.png" alt="تأمين الزيارات">
+    <div class="card-img-wrapper">
+      <img src="https://raw.githubusercontent.com/abuowaystravel/Owis/main/insurance%20-01.png" alt="تأمين الزيارات">
+    </div>
     <div class="card-body">
-      <h3 id="s3">تأمين الزيارات العائلية</h3>
-      <p id="s3d">راحة بالك... عائلتك في أمان</p>
+      <div>
+        <h3 id="s3">تأمين الزيارات العائلية</h3>
+        <p id="s3d">راحة بالك... عائلتك في أمان</p>
+      </div>
       <a href="#book" class="btn-orange" id="s3b">احجز الآن</a>
     </div>
   </div>
