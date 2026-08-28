@@ -15,7 +15,7 @@ body{background:var(--light)}
 .nav-links{display:flex; gap:20px; flex-wrap:wrap}
 .nav-links a{text-decoration:none; color:#333; font-weight:700}
 .btn-orange{background:var(--orange); color:white; padding:12px 22px; border:none; border-radius:10px; font-weight:bold; cursor:pointer; font-size:16px; text-decoration:none; display:inline-block; transition:0.3s}
-.btn-orange:hover{background:#e66a00}
+.btn-orange:hover{background:#e66a00; transform:scale(1.03)}
 .btn-orange:disabled{opacity:0.6; cursor:not-allowed}
 .hero{background:linear-gradient(rgba(10,46,110,0.75), rgba(10,46,110,0.75)), url('https://images.unsplash.com/photo-1587432967340-d1e3e4b1392d?q=1200') center/cover; color:white; padding:70px 5%; display:flex; gap:40px; flex-wrap:wrap; align-items:center}
 .hero-text{flex:1; min-width:300px}
@@ -33,27 +33,27 @@ input:focus,select:focus{outline:2px solid var(--orange); border-color:var(--ora
 @keyframes fadeIn{from{opacity:0; transform:translateY(-10px)} to{opacity:1; transform:translateY(0)}}
 .packages{display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:25px; padding:50px 5%}
 
-/* ===== تعديل الكروت والصور - النص كامل ===== */
+/* ===== الكروت والصور ===== */
 .card{background:white; border-radius:15px; overflow:hidden; box-shadow:0 6px 20px rgba(0,0,0,0.1); transition:0.3s; border-top:4px solid var(--orange); display:flex; flex-direction:column}
 .card:hover{transform:translateY(-8px)}
 .card-img-wrapper{
   height:240px; /* ارتفاع ثابت */
   width:100%;
-  background:#ffffff; /* خلفية بيضا عشان الفراغات */
+  background:#ffffff; /* خلفية بيضا عشان النص مييتقطعش */
   display:flex;
   align-items:center;
   justify-content:center;
-  padding:10px; /* مسافة بسيطة */
+  padding:10px;
 }
 .card img{
   width:100%;
   height:100%;
   object-fit:contain; /* الصورة كاملة */
-  object-position:center; /* في النص */
+  object-position:center;
 }
 .card-body{padding:20px; text-align:center; flex:1; display:flex; flex-direction:column; justify-content:space-between}
-.card-body h3{color:var(--blue); font-size:22px; margin-bottom:8px}
-.card-body p{color:#666; margin-bottom:15px; flex:1}
+.card-body h3{color:var(--blue); font-size:20px; margin-bottom:8px}
+.card-body p{color:#666; margin-bottom:15px; flex:1; font-size:15px}
 .footer{background:var(--blue); color:white; text-align:center; padding:40px 20px}
 .whatsapp{position:fixed; bottom:20px; left:20px; background:#25D366; width:55px; height:55px; border-radius:50%; display:flex; align-items:center; justify-content:center; color:white; font-size:30px; text-decoration:none; box-shadow:0 4px 10px rgba(0,0,0,0.2); z-index:99}
 @media(max-width:768px){
@@ -112,8 +112,8 @@ input:focus,select:focus{outline:2px solid var(--orange); border-color:var(--ora
   </div>
 </div>
 
-<h2 style="text-align:center; color:var(--blue); margin-bottom:20px" id="servicesTitle">خدماتنا المميزة</h2>
-<div class="packages">
+<h2 style="text-align:center; color:var(--blue); margin-bottom:20px" id="servicesTitle">خدماتنا المتوفرة الآن</h2>
+<div class="packages" id="services">
   <!-- 1. حجوزات الطيران -->
   <div class="card">
     <div class="card-img-wrapper">
@@ -121,36 +121,94 @@ input:focus,select:focus{outline:2px solid var(--orange); border-color:var(--ora
     </div>
     <div class="card-body">
       <div>
-        <h3 id="s1">حجوزات الطيران</h3>
-        <p id="s1d">أفضل الأسعار لجميع الوجهات العالمية</p>
+        <h3>حجوزات الطيران ✅</h3>
+        <p>أفضل الأسعار لجميع الوجهات العالمية</p>
       </div>
-      <a href="#book" class="btn-orange" id="s1b">احجز الآن</a>
+      <a href="#book" class="btn-orange">احجز الآن</a>
     </div>
   </div>
-  <!-- 2. تأشيرات العمرة -->
+
+  <!-- 2. حجوزات البواخر -->
   <div class="card">
     <div class="card-img-wrapper">
-      <img src="https://raw.githubusercontent.com/abuowaystravel/Owis/main/umrah.jpg-01.png" alt="تأشيرات العمرة">
+      <img src="https://images.unsplash.com/photo-1540946485867-3a7f2b2c2d1a?q=800" alt="حجوزات البواخر">
     </div>
     <div class="card-body">
       <div>
-        <h3 id="s2">تأشيرات العمرة الإلكترونية</h3>
-        <p id="s2d">اصدار سريع خلال 24 ساعة</p>
+        <h3>حجوزات البواخر ✅</h3>
+        <p>سفر بحري مريح وآمن لجميع الوجهات</p>
       </div>
-      <a href="#book" class="btn-orange" id="s2b">احجز الآن</a>
+      <a href="#book" class="btn-orange">احجز الآن</a>
     </div>
   </div>
-  <!-- 3. تأمين الزيارات -->
+
+  <!-- 3. استخراج الرخصة الدولية -->
+  <div class="card">
+    <div class="card-img-wrapper">
+      <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=800" alt="الرخصة الدولية">
+    </div>
+    <div class="card-body">
+      <div>
+        <h3>استخراج الرخصة الدولية ✅</h3>
+        <p>رخصة قيادة دولية معتمدة خلال 48 ساعة</p>
+      </div>
+      <a href="#book" class="btn-orange">احجز الآن</a>
+    </div>
+  </div>
+
+  <!-- 4. تأمين الزيارات بغرض التمديد -->
   <div class="card">
     <div class="card-img-wrapper">
       <img src="https://raw.githubusercontent.com/abuowaystravel/Owis/main/insurance%20-01.png" alt="تأمين الزيارات">
     </div>
     <div class="card-body">
       <div>
-        <h3 id="s3">تأمين الزيارات العائلية</h3>
-        <p id="s3d">راحة بالك... عائلتك في أمان</p>
+        <h3>تأمين الزيارات بغرض التمديد ✅</h3>
+        <p>تجديد تأمين الزيارة للتمديد بسهولة</p>
       </div>
-      <a href="#book" class="btn-orange" id="s3b">احجز الآن</a>
+      <a href="#book" class="btn-orange">احجز الآن</a>
+    </div>
+  </div>
+
+  <!-- 5. تجديد الزيارات العائلية -->
+  <div class="card">
+    <div class="card-img-wrapper">
+      <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=800" alt="تجديد الزيارات">
+    </div>
+    <div class="card-body">
+      <div>
+        <h3>تجديد الزيارات العائلية ✅</h3>
+        <p>نجدد زيارة عائلتك بدون تعقيد</p>
+      </div>
+      <a href="#book" class="btn-orange">احجز الآن</a>
+    </div>
+  </div>
+
+  <!-- 6. إجراءات الزيارة العائلية -->
+  <div class="card">
+    <div class="card-img-wrapper">
+      <img src="https://images.unsplash.com/photo-1521791136061-2f8c1e3e6f8f?q=800" alt="إجراءات الزيارة">
+    </div>
+    <div class="card-body">
+      <div>
+        <h3>إجراءات الزيارة العائلية ✅</h3>
+        <p>ننهي لك كل اجراءات الزيارة العائلية</p>
+      </div>
+      <a href="#book" class="btn-orange">احجز الآن</a>
+    </div>
+  </div>
+
+  <!-- 7. إصدار تأشيرات العمرة الإلكترونية -->
+  <div class="card">
+    <div class="card-img-wrapper">
+      <img src="https://raw.githubusercontent.com/abuowaystravel/Owis/main/umrah.jpg-01.png" alt="تأشيرات العمرة">
+    </div>
+    <div class="card-body">
+      <div>
+        <h3>إصدار تأشيرات العمرة الإلكترونية ✅</h3>
+        <p>اصدار سريع خلال 24 ساعة</p>
+      </div>
+      <a href="#book" class="btn-orange">احجز الآن</a>
     </div>
   </div>
 </div>
@@ -174,10 +232,8 @@ const dict = {
     heroDesc: "جميع خدمات السفر والسياحة في مكان واحد", heroBtn: "احجز الآن",
     f1: "أسعار تنافسية", f1d: "أفضل الأسعار والعروض", f2: "خدمة عملاء 24/7", f2d: "نحن معك في كل خطوة", f3: "حجوزات آمنة", f3d: "حماية ببياناتك 100%",
     formTitle: "نموذج الحجز السريع", name: "الاسم الكامل", phone: "رقم الواتساب", destination: "الوجهة", persons: "عدد الأشخاص", submit: "ارسال الطلب", date: "تاريخ السفر",
-    services: ["اختر الخدمة", "حجوزات الطيران", "حجوزات البواخر", "تأشيرات العمرة الإلكترونية", "تأمين الزيارات", "تجديد الزيارات العائلية", "استخراج الرخصة الدولية"],
-    servicesTitle: "خدماتنا المميزة", s1: "حجوزات الطيران", s1d: "أفضل الأسعار لجميع الوجهات العالمية", s1b: "احجز الآن",
-    s2: "تأشيرات العمرة الإلكترونية", s2d: "اصدار سريع خلال 24 ساعة", s2b: "احجز الآن",
-    s3: "تأمين الزيارات العائلية", s3d: "راحة بالك... عائلتك في أمان", s3b: "احجز الآن",
+    services: ["اختر الخدمة", "حجوزات الطيران", "حجوزات البواخر", "استخراج الرخصة الدولية", "تأمين الزيارات بغرض التمديد", "تجديد الزيارات العائلية", "إجراءات الزيارة العائلية", "إصدار تأشيرات العمرة الإلكترونية"],
+    servicesTitle: "خدماتنا المتوفرة الآن",
     footer1: "أبو أويس للسفر والسياحة", footer2: "جميع الحقوق محفوظة © 2026"
   },
   en: {
@@ -187,10 +243,8 @@ const dict = {
     heroDesc: "All travel & tourism services in one place", heroBtn: "Book Now",
     f1: "Competitive Prices", f1d: "Best prices & offers", f2: "24/7 Support", f2d: "We are with you every step", f3: "Secure Booking", f3d: "100% data protection",
     formTitle: "Quick Booking Form", name: "Full Name", phone: "WhatsApp Number", destination: "Destination", persons: "Number of Persons", submit: "Send Request", date: "Travel Date",
-    services: ["Select Service", "Flight Booking", "Ferry Booking", "E-Umrah Visa", "Visit Insurance", "Family Visit Renewal", "International Driving License"],
-    servicesTitle: "Our Featured Services", s1: "Flight Booking", s1d: "Best prices for all global destinations", s1b: "Book Now",
-    s2: "E-Umrah Visa", s2d: "Fast issuance within 24 hours", s2b: "Book Now",
-    s3: "Family Visit Insurance", s3d: "Comprehensive coverage for your family", s3b: "Book Now",
+    services: ["Select Service", "Flight Booking", "Ferry Booking", "International Driving License", "Visit Insurance for Extension", "Family Visit Renewal", "Family Visit Procedures", "E-Umrah Visa Issuance"],
+    servicesTitle: "Our Available Services Now",
     footer1: "Abu Oways Travel & Tourism", footer2: "All Rights Reserved © 2026"
   }
 };
