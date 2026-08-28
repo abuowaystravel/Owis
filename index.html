@@ -33,23 +33,19 @@ input:focus,select:focus{outline:2px solid var(--orange); border-color:var(--ora
 @keyframes fadeIn{from{opacity:0; transform:translateY(-10px)} to{opacity:1; transform:translateY(0)}}
 .packages{display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:25px; padding:50px 5%}
 
-/* ===== الكروت والصور ===== */
+/* ===== تعديل مهم للصور ===== */
 .card{background:white; border-radius:15px; overflow:hidden; box-shadow:0 6px 20px rgba(0,0,0,0.1); transition:0.3s; border-top:4px solid var(--orange); display:flex; flex-direction:column}
 .card:hover{transform:translateY(-8px)}
 .card-img-wrapper{
-  height:240px; /* ارتفاع ثابت */
   width:100%;
-  background:#ffffff; /* خلفية بيضا عشان النص مييتقطعش */
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  padding:10px;
+  aspect-ratio: 16/9; /* يخلي الصورة تملأ بدون فراغات */
 }
 .card img{
   width:100%;
   height:100%;
-  object-fit:contain; /* الصورة كاملة */
-  object-position:center;
+  object-fit:cover; /* تملأ المربع */
+  object-position:center; /* النص في النص يبان */
+  display:block;
 }
 .card-body{padding:20px; text-align:center; flex:1; display:flex; flex-direction:column; justify-content:space-between}
 .card-body h3{color:var(--blue); font-size:20px; margin-bottom:8px}
@@ -60,7 +56,6 @@ input:focus,select:focus{outline:2px solid var(--orange); border-color:var(--ora
 .nav-links{display:none}
 .hero{padding:40px 20px; text-align:center}
 .hero-text h1{font-size:32px}
-.card-img-wrapper{height:200px}
 </style>
 </head>
 <body>
@@ -131,7 +126,7 @@ input:focus,select:focus{outline:2px solid var(--orange); border-color:var(--ora
   <!-- 2. حجوزات البواخر -->
   <div class="card">
     <div class="card-img-wrapper">
-      <img src="https://images.unsplash.com/photo-1540946485867-3a7f2b2c2d1a?q=800" alt="حجوزات البواخر">
+      <img src="https://raw.githubusercontent.com/abuowaystravel/Owis/main/bakra-01.png" alt="حجوزات البواخر">
     </div>
     <div class="card-body">
       <div>
@@ -145,7 +140,7 @@ input:focus,select:focus{outline:2px solid var(--orange); border-color:var(--ora
   <!-- 3. استخراج الرخصة الدولية -->
   <div class="card">
     <div class="card-img-wrapper">
-      <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=800" alt="الرخصة الدولية">
+      <img src="https://raw.githubusercontent.com/abuowaystravel/Owis/main/roksa-01.png" alt="الرخصة الدولية">
     </div>
     <div class="card-body">
       <div>
@@ -173,7 +168,7 @@ input:focus,select:focus{outline:2px solid var(--orange); border-color:var(--ora
   <!-- 5. تجديد الزيارات العائلية -->
   <div class="card">
     <div class="card-img-wrapper">
-      <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?q=800" alt="تجديد الزيارات">
+      <img src="https://raw.githubusercontent.com/abuowaystravel/Owis/main/zyara-01.png" alt="تجديد الزيارات">
     </div>
     <div class="card-body">
       <div>
@@ -187,7 +182,7 @@ input:focus,select:focus{outline:2px solid var(--orange); border-color:var(--ora
   <!-- 6. إجراءات الزيارة العائلية -->
   <div class="card">
     <div class="card-img-wrapper">
-      <img src="https://images.unsplash.com/photo-1521791136061-2f8c1e3e6f8f?q=800" alt="إجراءات الزيارة">
+      <img src="https://raw.githubusercontent.com/abuowaystravel/Owis/main/zyara-01.png" alt="إجراءات الزيارة">
     </div>
     <div class="card-body">
       <div>
