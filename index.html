@@ -33,7 +33,7 @@ input:focus,select:focus{outline:2px solid var(--orange); border-color:var(--ora
 .packages{display:grid; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); gap:25px; padding:50px 5%}
 .card{background:white; border-radius:15px; overflow:hidden; box-shadow:0 6px 20px rgba(0,0,0,0.1); transition:0.3s; border-top:4px solid var(--orange)}
 .card:hover{transform:translateY(-8px)}
-.card img{width:100%; height:auto; max-height:300px; object-fit:contain; background:#f8f9fa}
+.card img{width:100%; height:250px; object-fit:cover; background:#f8f9fa}
 .card-body{padding:20px; text-align:center}
 .card-body h3{color:var(--blue); font-size:22px; margin-bottom:8px}
 .card-body p{color:#666; margin-bottom:15px}
@@ -93,22 +93,25 @@ input:focus,select:focus{outline:2px solid var(--orange); border-color:var(--ora
 
 <h2 style="text-align:center; color:var(--blue); margin-bottom:20px" id="servicesTitle">خدماتنا المميزة</h2>
 <div class="packages">
+  <!-- 1. حجوزات الطيران -->
   <div class="card">
-    <img src="https://raw.githubusercontent.com/abuowaystravel/Owis/main/plane-01.png" alt="حجوزات الطيران">
+    <img src="https://raw.githubusercontent.com/abuowaystravel/Owis/main/plane.jpg-01%20%281%29.png" alt="حجوزات الطيران">
     <div class="card-body">
       <h3 id="s1">حجوزات الطيران</h3>
       <p id="s1d">أفضل الأسعار لجميع الوجهات العالمية</p>
       <a href="#book" class="btn-orange" id="s1b">احجز الآن</a>
     </div>
   </div>
+  <!-- 2. تأشيرات العمرة -->
   <div class="card">
-    <img src="https://raw.githubusercontent.com/abuowaystravel/Owis/main/umrah-01.png" alt="تأشيرات العمرة">
+    <img src="https://raw.githubusercontent.com/abuowaystravel/Owis/main/umrah.jpg-01.png" alt="تأشيرات العمرة">
     <div class="card-body">
       <h3 id="s2">تأشيرات العمرة الإلكترونية</h3>
       <p id="s2d">اصدار سريع خلال 24 ساعة</p>
       <a href="#book" class="btn-orange" id="s2b">احجز الآن</a>
     </div>
   </div>
+  <!-- 3. تأمين الزيارات -->
   <div class="card">
     <img src="https://raw.githubusercontent.com/abuowaystravel/Owis/main/insurance%20-01.png" alt="تأمين الزيارات">
     <div class="card-body">
