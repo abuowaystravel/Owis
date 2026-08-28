@@ -32,21 +32,10 @@ input:focus,select:focus{outline:2px solid var(--orange); border-color:var(--ora
 .success-msg.show{display:block}
 @keyframes fadeIn{from{opacity:0; transform:translateY(-10px)} to{opacity:1; transform:translateY(0)}}
 .packages{display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:25px; padding:50px 5%}
-
-/* ===== تعديل مهم للصور ===== */
 .card{background:white; border-radius:15px; overflow:hidden; box-shadow:0 6px 20px rgba(0,0,0,0.1); transition:0.3s; border-top:4px solid var(--orange); display:flex; flex-direction:column}
 .card:hover{transform:translateY(-8px)}
-.card-img-wrapper{
-  width:100%;
-  aspect-ratio: 16/9; /* يخلي الصورة تملأ بدون فراغات */
-}
-.card img{
-  width:100%;
-  height:100%;
-  object-fit:cover; /* تملأ المربع */
-  object-position:center; /* النص في النص يبان */
-  display:block;
-}
+.card-img-wrapper{width:100%; aspect-ratio: 16/9;}
+.card img{width:100%; height:100%; object-fit:cover; object-position:center; display:block;}
 .card-body{padding:20px; text-align:center; flex:1; display:flex; flex-direction:column; justify-content:space-between}
 .card-body h3{color:var(--blue); font-size:20px; margin-bottom:8px}
 .card-body p{color:#666; margin-bottom:15px; flex:1; font-size:15px}
@@ -93,119 +82,29 @@ input:focus,select:focus{outline:2px solid var(--orange); border-color:var(--ora
   <h2 style="text-align:center; margin-bottom:20px; color:var(--blue)" id="formTitle">نموذج الحجز السريع</h2>
   <form id="bookingForm">
     <div class="form-grid">
-      <input type="text" id="name" name="Full Name" placeholder="الاسم الكامل" required>
-      <input type="tel" id="phone" name="WhatsApp" placeholder="رقم الواتساب" required>
-      <select id="service" name="Service" required></select>
-      <input type="text" id="destination" name="Destination" placeholder="الوجهة">
-      <input type="date" name="Travel Date" id="date">
-      <input type="number" id="persons" name="Persons" placeholder="عدد الأشخاص">
+      <input type="text" id="name" name="name" placeholder="الاسم الكامل" required>
+      <input type="tel" id="phone" name="phone" placeholder="رقم الواتساب" required>
+      <select id="service" name="service" required></select>
+      <input type="text" id="destination" name="destination" placeholder="الوجهة">
+      <input type="date" name="date" id="date">
+      <input type="number" id="persons" name="persons" placeholder="عدد الأشخاص">
     </div>
-    <button type="submit" class="btn-orange" style="width:100%; margin-top:15px; padding:15px" id="submitBtn">ارسال الطلب</button>
+    <button type="submit" class="btn-orange" style="width:100%; margin-top:15px; padding:15px" id="submitBtn">ارسال الطلب عبر الواتساب</button>
   </form>
   <div id="successMessage" class="success-msg">
-    ✅ تم ارسال البيانات بنجاح سوف يتم التواصل معك في اقرب وقت
+    ✅ تم تحويلك للواتساب بنجاح
   </div>
 </div>
 
 <h2 style="text-align:center; color:var(--blue); margin-bottom:20px" id="servicesTitle">خدماتنا المتوفرة الآن</h2>
 <div class="packages" id="services">
-  <!-- 1. حجوزات الطيران -->
-  <div class="card">
-    <div class="card-img-wrapper">
-      <img src="https://raw.githubusercontent.com/abuowaystravel/Owis/main/plane.jpg-01%20%281%29.png" alt="حجوزات الطيران">
-    </div>
-    <div class="card-body">
-      <div>
-        <h3>حجوزات الطيران ✅</h3>
-        <p>أفضل الأسعار لجميع الوجهات العالمية</p>
-      </div>
-      <a href="#book" class="btn-orange">احجز الآن</a>
-    </div>
-  </div>
-
-  <!-- 2. حجوزات البواخر -->
-  <div class="card">
-    <div class="card-img-wrapper">
-      <img src="https://raw.githubusercontent.com/abuowaystravel/Owis/main/bakra-01.png" alt="حجوزات البواخر">
-    </div>
-    <div class="card-body">
-      <div>
-        <h3>حجوزات البواخر ✅</h3>
-        <p>سفر بحري مريح وآمن لجميع الوجهات</p>
-      </div>
-      <a href="#book" class="btn-orange">احجز الآن</a>
-    </div>
-  </div>
-
-  <!-- 3. استخراج الرخصة الدولية -->
-  <div class="card">
-    <div class="card-img-wrapper">
-      <img src="https://raw.githubusercontent.com/abuowaystravel/Owis/main/roksa-01.png" alt="الرخصة الدولية">
-    </div>
-    <div class="card-body">
-      <div>
-        <h3>استخراج الرخصة الدولية ✅</h3>
-        <p>رخصة قيادة دولية معتمدة خلال 48 ساعة</p>
-      </div>
-      <a href="#book" class="btn-orange">احجز الآن</a>
-    </div>
-  </div>
-
-  <!-- 4. تأمين الزيارات بغرض التمديد -->
-  <div class="card">
-    <div class="card-img-wrapper">
-      <img src="https://raw.githubusercontent.com/abuowaystravel/Owis/main/insurance%20-01.png" alt="تأمين الزيارات">
-    </div>
-    <div class="card-body">
-      <div>
-        <h3>تأمين الزيارات بغرض التمديد ✅</h3>
-        <p>تجديد تأمين الزيارة للتمديد بسهولة</p>
-      </div>
-      <a href="#book" class="btn-orange">احجز الآن</a>
-    </div>
-  </div>
-
-  <!-- 5. تجديد الزيارات العائلية -->
-  <div class="card">
-    <div class="card-img-wrapper">
-      <img src="https://raw.githubusercontent.com/abuowaystravel/Owis/main/zyara-01.png" alt="تجديد الزيارات">
-    </div>
-    <div class="card-body">
-      <div>
-        <h3>تجديد الزيارات العائلية ✅</h3>
-        <p>نجدد زيارة عائلتك بدون تعقيد</p>
-      </div>
-      <a href="#book" class="btn-orange">احجز الآن</a>
-    </div>
-  </div>
-
-  <!-- 6. إجراءات الزيارة العائلية -->
-  <div class="card">
-    <div class="card-img-wrapper">
-      <img src="https://raw.githubusercontent.com/abuowaystravel/Owis/main/zyara-01.png" alt="إجراءات الزيارة">
-    </div>
-    <div class="card-body">
-      <div>
-        <h3>إجراءات الزيارة العائلية ✅</h3>
-        <p>ننهي لك كل اجراءات الزيارة العائلية</p>
-      </div>
-      <a href="#book" class="btn-orange">احجز الآن</a>
-    </div>
-  </div>
-
-  <!-- 7. إصدار تأشيرات العمرة الإلكترونية -->
-  <div class="card">
-    <div class="card-img-wrapper">
-      <img src="https://raw.githubusercontent.com/abuowaystravel/Owis/main/umrah.jpg-01.png" alt="تأشيرات العمرة">
-    </div>
-    <div class="card-body">
-      <div>
-        <h3>إصدار تأشيرات العمرة الإلكترونية ✅</h3>
-        <p>اصدار سريع خلال 24 ساعة</p>
-      </div>
-      <a href="#book" class="btn-orange">احجز الآن</a>
-    </div>
-  </div>
+  <div class="card"><div class="card-img-wrapper"><img src="https://raw.githubusercontent.com/abuowaystravel/Owis/main/plane.jpg-01%20%281%29.png" alt="حجوزات الطيران"></div><div class="card-body"><div><h3>حجوزات الطيران ✅</h3><p>أفضل الأسعار لجميع الوجهات العالمية</p></div><a href="#book" class="btn-orange">احجز الآن</a></div></div>
+  <div class="card"><div class="card-img-wrapper"><img src="https://raw.githubusercontent.com/abuowaystravel/Owis/main/bakra-01.png" alt="حجوزات البواخر"></div><div class="card-body"><div><h3>حجوزات البواخر ✅</h3><p>سفر بحري مريح وآمن لجميع الوجهات</p></div><a href="#book" class="btn-orange">احجز الآن</a></div></div>
+  <div class="card"><div class="card-img-wrapper"><img src="https://raw.githubusercontent.com/abuowaystravel/Owis/main/roksa-01.png" alt="الرخصة الدولية"></div><div class="card-body"><div><h3>استخراج الرخصة الدولية ✅</h3><p>رخصة قيادة دولية معتمدة خلال 48 ساعة</p></div><a href="#book" class="btn-orange">احجز الآن</a></div></div>
+  <div class="card"><div class="card-img-wrapper"><img src="https://raw.githubusercontent.com/abuowaystravel/Owis/main/insurance%20-01.png" alt="تأمين الزيارات"></div><div class="card-body"><div><h3>تأمين الزيارات بغرض التمديد ✅</h3><p>تجديد تأمين الزيارة للتمديد بسهولة</p></div><a href="#book" class="btn-orange">احجز الآن</a></div></div>
+  <div class="card"><div class="card-img-wrapper"><img src="https://raw.githubusercontent.com/abuowaystravel/Owis/main/zyara-01.png" alt="تجديد الزيارات"></div><div class="card-body"><div><h3>تجديد الزيارات العائلية ✅</h3><p>نجدد زيارة عائلتك بدون تعقيد</p></div><a href="#book" class="btn-orange">احجز الآن</a></div></div>
+  <div class="card"><div class="card-img-wrapper"><img src="https://raw.githubusercontent.com/abuowaystravel/Owis/main/zyara-01.png" alt="إجراءات الزيارة"></div><div class="card-body"><div><h3>إجراءات الزيارة العائلية ✅</h3><p>ننهي لك كل اجراءات الزيارة العائلية</p></div><a href="#book" class="btn-orange">احجز الآن</a></div></div>
+  <div class="card"><div class="card-img-wrapper"><img src="https://raw.githubusercontent.com/abuowaystravel/Owis/main/umrah.jpg-01.png" alt="تأشيرات العمرة"></div><div class="card-body"><div><h3>إصدار تأشيرات العمرة الإلكترونية ✅</h3><p>اصدار سريع خلال 24 ساعة</p></div><a href="#book" class="btn-orange">احجز الآن</a></div></div>
 </div>
 
 <div class="footer">
@@ -219,6 +118,8 @@ input:focus,select:focus{outline:2px solid var(--orange); border-color:var(--ora
 
 <script>
 let currentLang = 'ar';
+const WHATSAPP_NUMBER = '966558840686'; // رقم الواتساب بتاعك
+
 const dict = {
   ar: {
     title: "أبو أويس للسفر والسياحة", langBtn: "EN 🌐", navBtn: "احجز الآن 📅",
@@ -226,7 +127,7 @@ const dict = {
     heroTitle: 'رحلتك إلى <br>بيت الله <br><span style="color:var(--orange)">تبدأ من هنا</span>',
     heroDesc: "جميع خدمات السفر والسياحة في مكان واحد", heroBtn: "احجز الآن",
     f1: "أسعار تنافسية", f1d: "أفضل الأسعار والعروض", f2: "خدمة عملاء 24/7", f2d: "نحن معك في كل خطوة", f3: "حجوزات آمنة", f3d: "حماية ببياناتك 100%",
-    formTitle: "نموذج الحجز السريع", name: "الاسم الكامل", phone: "رقم الواتساب", destination: "الوجهة", persons: "عدد الأشخاص", submit: "ارسال الطلب", date: "تاريخ السفر",
+    formTitle: "نموذج الحجز السريع", name: "الاسم الكامل", phone: "رقم الواتساب", destination: "الوجهة", persons: "عدد الأشخاص", submit: "ارسال الطلب عبر الواتساب", date: "تاريخ السفر",
     services: ["اختر الخدمة", "حجوزات الطيران", "حجوزات البواخر", "استخراج الرخصة الدولية", "تأمين الزيارات بغرض التمديد", "تجديد الزيارات العائلية", "إجراءات الزيارة العائلية", "إصدار تأشيرات العمرة الإلكترونية"],
     servicesTitle: "خدماتنا المتوفرة الآن",
     footer1: "أبو أويس للسفر والسياحة", footer2: "جميع الحقوق محفوظة © 2026"
@@ -237,7 +138,7 @@ const dict = {
     heroTitle: 'Your Journey to <br>Allah\'s House <br><span style="color:var(--orange)">Starts Here</span>',
     heroDesc: "All travel & tourism services in one place", heroBtn: "Book Now",
     f1: "Competitive Prices", f1d: "Best prices & offers", f2: "24/7 Support", f2d: "We are with you every step", f3: "Secure Booking", f3d: "100% data protection",
-    formTitle: "Quick Booking Form", name: "Full Name", phone: "WhatsApp Number", destination: "Destination", persons: "Number of Persons", submit: "Send Request", date: "Travel Date",
+    formTitle: "Quick Booking Form", name: "Full Name", phone: "WhatsApp Number", destination: "Destination", persons: "Number of Persons", submit: "Send via WhatsApp", date: "Travel Date",
     services: ["Select Service", "Flight Booking", "Ferry Booking", "International Driving License", "Visit Insurance for Extension", "Family Visit Renewal", "Family Visit Procedures", "E-Umrah Visa Issuance"],
     servicesTitle: "Our Available Services Now",
     footer1: "Abu Oways Travel & Tourism", footer2: "All Rights Reserved © 2026"
@@ -254,32 +155,40 @@ function setLang(lang){
 function toggleLang(){ currentLang = currentLang === 'ar'? 'en' : 'ar'; setLang(currentLang); }
 setLang('ar');
 
-document.getElementById('bookingForm').addEventListener('submit', async function(e){
+// ===== كود الارسال للواتساب =====
+document.getElementById('bookingForm').addEventListener('submit', function(e){
   e.preventDefault();
-  const btn = document.getElementById('submitBtn');
-  btn.disabled = true;
-  btn.innerHTML = 'جاري الارسال...';
-  const formData = new FormData(this);
-  formData.append('_subject', 'New Booking - Abu Oways');
-  formData.append('_captcha', 'false');
-  formData.append('_template', 'table');
-  try {
-    await fetch('https://formsubmit.co/ajax/Rhmtabwmr03@gmail.com', {
-      method: 'POST',
-      body: formData
-    });
-    const successMsg = document.getElementById('successMessage');
-    successMsg.classList.add('show');
-    document.getElementById('bookingForm').reset();
-    successMsg.scrollIntoView({behavior: 'smooth'});
-    setTimeout(function(){
-      successMsg.classList.remove('show');
-    }, 5000);
-  } catch (error) {
-    alert('حدث خطأ. حاول مرة اخرى');
-  }
-  btn.disabled = false;
-  btn.innerHTML = dict[currentLang].submit;
+
+  const name = document.getElementById('name').value;
+  const phone = document.getElementById('phone').value;
+  const service = document.getElementById('service').value;
+  const destination = document.getElementById('destination').value;
+  const date = document.getElementById('date').value;
+  const persons = document.getElementById('persons').value;
+
+  // الرسالة اللي هتروح الواتساب
+  let message = `*طلب حجز جديد - أبو أويس للسفر*\n\n`;
+  message += `*الاسم:* ${name}\n`;
+  message += `*رقم الواتساب:* ${phone}\n`;
+  message += `*الخدمة:* ${service}\n`;
+  message += `*الوجهة:* ${destination}\n`;
+  message += `*تاريخ السفر:* ${date}\n`;
+  message += `*عدد الأشخاص:* ${persons}\n`;
+
+  // رابط الواتساب
+  const whatsappURL = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+
+  // افتح الواتساب
+  window.open(whatsappURL, '_blank');
+
+  // اظهر رسالة النجاح
+  const successMsg = document.getElementById('successMessage');
+  successMsg.classList.add('show');
+  document.getElementById('bookingForm').reset();
+
+  setTimeout(function(){
+    successMsg.classList.remove('show');
+  }, 3000);
 });
 </script>
 </body>
